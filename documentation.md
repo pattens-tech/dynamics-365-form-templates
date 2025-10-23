@@ -61,8 +61,7 @@ Both the header structure and body structure are required in each form in order 
 ├─→ Entire file
 │   ├─→ Header (HTML)
 │   ├─→ Header (Dynamics 365)
-│   ├─→ Body (Form)
-│   └─→ Validation: HTML4/XHTML strict
+│   └─→ Body (Form)
 ```
 
 ### Header (HTML)
@@ -115,6 +114,7 @@ Both the header structure and body structure are required in each form in order 
           value="marketing-designer-content-editor-document">
 
     <!-- Required: Tailwind CSS -->
+
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Tailwind Configuration -->
