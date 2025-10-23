@@ -21,7 +21,7 @@ Required;
         <meta type="xrm/designer/setting" name="additional-fonts" datatype="font" value="<Inter>">
 ```
 
-#Form structure
+### Form structure
 
 
 ```html
