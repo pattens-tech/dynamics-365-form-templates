@@ -1,7 +1,7 @@
 # Dynamics 365 Form Templates
 
 
-## Conceptual Overview
+## Overview
 
 This section provides a high-level understanding of the different form types available in Dynamics 365 Customer Insights, their intended use cases, and the key considerations when designing forms for marketing, event registration, and consent management. Use this as a starting point to plan and implement forms that meet both business and technical requirements.
 
