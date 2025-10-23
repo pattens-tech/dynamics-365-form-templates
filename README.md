@@ -9,6 +9,8 @@ Modern, accessible, and customizable form templates for Dynamics 365 Customer In
 
 This repository provides custom HTML form templates for Dynamics 365 Customer Insights that break free from the standard default forms. These templates are rebuilt from the ground up with a modern look, advanced features, and full accessibility support.
 
+This repo was inspired by the work of Megan V. Walker, who's content I've used over the years to super-charge my Dynamics knowledge. https://meganvwalker.com
+
 ### Form Types and Use Cases
 
 Dynamics 365 has multiple form types: standard forms (such as contact forms), event forms, and preference centers. This repo currently focuses on **standard forms**, with event forms and preference centers coming soon.
