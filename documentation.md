@@ -50,7 +50,6 @@ Lead / Email (emailaddress1)
 Lead / Mobile phone (mobilephone)
 Lead / Company name (companyname)
 
-
 ### Field Properties
 Each form field supports the following properties:
 
