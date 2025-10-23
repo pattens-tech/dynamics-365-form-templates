@@ -4,7 +4,7 @@ This in-depth documentation aims to provide the technical background to how the 
 
 ### Complete Form Example
 
-[/form-example.html](/form-example.html)
+[View](https://pattens-tech.github.io/dynamics-365-forms/contact-form.html)
 
 
 ### Form element types
