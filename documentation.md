@@ -7,8 +7,6 @@ This in-depth documentation aims to provide the technical background to how the 
 [/form-example.html](/form-example.html)
 
 
-
-
 ### Form element types
 
 Complete list of available form elements:
@@ -60,8 +58,9 @@ Both the header structure and body structure are required in each form in order 
 ```
 ├─→ Entire file
 │   ├─→ Header (Dynamics 365 tags)
-│   ├─→ Header (HTML)
-│   └─→ Body (Form)
+│   ├─→ Header (Style, Fonts)
+│   ├─→ Body (Form)
+│   └─→ Body (Thank you moddal)
 ```
 
 ### Header
@@ -166,6 +165,7 @@ Both the header structure and body structure are required in each form in order 
     </div>
 
     <!-- Thank You Modal -->
+
     <div id="thankYouModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
       <div class="bg-white rounded-2xl p-8 shadow-xl text-center max-w-sm">
         <div class="mx-auto mb-4 w-16 h-16 flex items-center justify-center rounded-full bg-green-100 text-green-600 text-3xl">✓</div>
