@@ -25,6 +25,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Color theme variants (corporate, vibrant, minimal)
 - GitHub Actions workflow for automated HTML validation
 - GITHUB_TOPICS.md with instructions for adding repository topics
+- templates/ directory for better organization
+
+### Changed
+- Reorganized all HTML template files into templates/ folder
+- Updated all documentation references to reflect new template paths
+- Updated GitHub Pages URLs in README and documentation
 
 ### Enhanced
 - Comprehensive documentation improvements

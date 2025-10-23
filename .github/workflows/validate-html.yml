@@ -31,7 +31,7 @@ jobs:
       - name: Validate HTML files
         run: |
           echo "Validating HTML files..."
-          for file in *.html; do
+          for file in templates/*.html; do
             if [ -f "$file" ]; then
               echo "Checking $file..."
               html-validate "$file" --config .htmlvalidate.json || echo "::warning file=$file::HTML validation found issues in $file"
@@ -52,4 +52,4 @@ jobs:
           echo "All HTML files have been validated." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Files checked:**" >> $GITHUB_STEP_SUMMARY
-          ls -1 *.html >> $GITHUB_STEP_SUMMARY
+          ls -1 templates/*.html >> $GITHUB_STEP_SUMMARY

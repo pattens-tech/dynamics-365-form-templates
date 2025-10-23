@@ -22,7 +22,7 @@ Dynamics 365 has multiple form types: standard forms (such as contact forms), ev
   - **Features:** Standard form fields, validation, submission handling, consent management
 
 ### Form Template Preview
-[View Live Demo](https://pattens-tech.github.io/dynamics-365-forms/contact-form.html)
+[View Live Demo](https://pattens-tech.github.io/dynamics-365-forms/templates/contact-form.html)
 
 ## Color Themes
 
@@ -30,10 +30,10 @@ Choose from multiple pre-built color themes to match your brand:
 
 | Theme | Description | File | Preview |
 |-------|-------------|------|---------|
-| **Blue (Default)** | Professional blue theme with sky tones | `contact-form.html` | [Demo](https://pattens-tech.github.io/dynamics-365-forms/contact-form.html) |
-| **Corporate** | Sleek slate/gray professional theme | `contact-form-corporate.html` | Clean and modern |
-| **Vibrant** | Eye-catching purple-to-orange gradient | `contact-form-vibrant.html` | Bold and energetic |
-| **Minimal** | Classic black and white minimalist | `contact-form-minimal.html` | Simple and elegant |
+| **Blue (Default)** | Professional blue theme with sky tones | `templates/contact-form.html` | [Demo](https://pattens-tech.github.io/dynamics-365-forms/templates/contact-form.html) |
+| **Corporate** | Sleek slate/gray professional theme | `templates/contact-form-corporate.html` | Clean and modern |
+| **Vibrant** | Eye-catching purple-to-orange gradient | `templates/contact-form-vibrant.html` | Bold and energetic |
+| **Minimal** | Classic black and white minimalist | `templates/contact-form-minimal.html` | Simple and elegant |
 
 All themes include the same features and functionality - only the colors differ!
 
@@ -53,7 +53,7 @@ Before using these templates, ensure you have:
 ## Quick Start
 
 1. **Copy the HTML template**
-   - Navigate to `contact-form.html` in this repository
+   - Navigate to `templates/contact-form.html` in this repository
    - Copy the entire HTML content
 
 2. **Access Dynamics 365 Marketing Forms**
