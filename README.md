@@ -5,7 +5,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/pattens-tech/dynamics-365-forms?style=social)](https://github.com/pattens-tech/dynamics-365-forms/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/pattens-tech/dynamics-365-forms?style=social)](https://github.com/pattens-tech/dynamics-365-forms/network/members)
 
-Modern, accessible, and customizable form templates for Dynamics 365 Customer Insights - built with Tailwind CSS.
+Beautiful, modern, accessible, and customizable form templates for Dynamics 365 Customer Insights - built with Tailwind CSS.
 
 ![image](https://repository-images.githubusercontent.com/1082111680/018e4781-7244-4382-8694-e9b2b21f0b6f)
 
