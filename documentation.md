@@ -8,7 +8,7 @@ A form consits of required and optional components:
 
 Required;
 
-### Header code
+### Header
 
 ```html
 <!DOCTYPE html><html><head>
@@ -21,14 +21,21 @@ Required;
         <meta type="xrm/designer/setting" name="additional-fonts" datatype="font" value="<Inter>">
 ```
 
-### Form structure
+# Code layout
+
+├─→ Entire file
+│   ├─→ Header
+│   ├─→ Body 
+│   ├─→ CSS: Inline styles + embedded
+│   ├─→ Restrictions: No media queries, no background-image, no border-radius
+│   └─→ Validation: HTML4/XHTML strict
+        
+
+### Body
 
 
 ```html
-<!-- 1. Enable drag-and-drop designer (in <head>) -->
-<meta type="xrm/designer/setting" name="type" value="marketing-designer-content-editor-document">
-
-<!-- 2. Create editable container (in <body>) -->
+<!-- Creates editable container (in <body>) -->
 <div data-container="true">
   <!-- Users can drag elements here -->
 </div>
