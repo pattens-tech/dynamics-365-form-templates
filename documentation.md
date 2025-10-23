@@ -27,7 +27,7 @@ Optional form elements:
 | Forward to friend | `ForwardToFriendBlock` | Forward functionality |
 
 ### Default form fields for Contacts & Leads
-These may different depending on if you have customized your Dynamics 365 instance.
+These may differ depending on if you have customized your Dynamics 365 instance.
 
 | Field | Logical name |
 |-------|--------------|
@@ -60,7 +60,7 @@ Both the header structure and body structure are required in each form in order 
 │   ├─→ Header (Dynamics 365 tags)
 │   ├─→ Header (Style, Fonts)
 │   ├─→ Body (Form)
-│   └─→ Body (Thank you moddal)
+│   └─→ Body (Thank you modal)
 ```
 
 ### Header
@@ -163,15 +163,14 @@ Both the header structure and body structure are required in each form in order 
         <p class="text-xs text-gray-400 mt-4 text-center">By selecting Send message, I agree to the Terms of Service and acknowledge the Privacy policy.</p>
       </div>
     </div>
-
+  </form>
 
 ```
 
-### Body (Form)
+### Body (Thank You Modal)
 
 ```html
     <!-- Thank You Modal -->
-
     <div id="thankYouModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
       <div class="bg-white rounded-2xl p-8 shadow-xl text-center max-w-sm">
         <div class="mx-auto mb-4 w-16 h-16 flex items-center justify-center rounded-full bg-green-100 text-green-600 text-3xl">✓</div>
@@ -180,9 +179,14 @@ Both the header structure and body structure are required in each form in order 
         <button type="button" class="bg-sky-700 text-white px-6 py-2 rounded-lg hover:bg-sky-800 transition" onclick="closeThankYouModal()">Close</button>
       </div>
     </div>
-  </form>
-</body>
 
+  <script>
+    function closeThankYouModal() {
+      document.getElementById('thankYouModal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
 ```
 
 ### Advanced styling
@@ -213,7 +217,7 @@ Using Tailwind CSS enables faster forms due to the CSS being hosted externally.
      
 ### Accessibility
 
-All forms should include required accessibility code to support those using assistative technologies to read and fill out forms.
+All forms should include required accessibility code to support those using assistive technologies to read and fill out forms.
 
 - **Label every field clearly:** Use `<label>` elements linked to inputs via `for` and `id` attributes.
 - **Keyboard navigation:** Ensure all interactive elements (fields, buttons, checkboxes) are reachable and usable via Tab/Shift+Tab.
@@ -222,6 +226,230 @@ All forms should include required accessibility code to support those using assi
 - **Contrast and focus:** Use sufficient color contrast and clear focus indicators for all controls.
 - **Group related fields:** Use `<fieldset>` and `<legend>` for related groups (e.g., consent checkboxes).
 - **Accessible submit button:** Ensure the submit button is a `<button>` or `<input type="submit">` and is clearly labeled.
+
+#### Accessibility Example: Required Field with Error Handling
+
+```html
+<div class="mb-4"
+     data-editorblocktype="TextFormField"
+     data-targetaudience="contact"
+     data-targetproperty="firstname"
+     data-required="required">
+  <label for="firstname" class="block text-gray-800 text-sm font-medium mb-2">
+    First Name <span aria-label="required" class="text-red-600">*</span>
+  </label>
+  <input
+    id="firstname"
+    type="text"
+    name="firstname"
+    placeholder="First Name"
+    aria-required="true"
+    aria-describedby="firstname-error"
+    maxlength="50"
+    required
+    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400">
+  <span id="firstname-error" class="hidden text-red-600 text-sm mt-1" role="alert" aria-live="polite"></span>
+</div>
+```
+
+#### Accessibility Example: Checkbox Group with Fieldset
+
+```html
+<fieldset class="mb-6">
+  <legend class="text-xl font-semibold text-gray-800 mb-2">Newsletter Preferences</legend>
+  <p class="text-gray-600 mb-4">Select the topics you're interested in:</p>
+
+  <div class="flex items-start mb-3">
+    <input
+      type="checkbox"
+      id="topic-marketing"
+      name="msdynmkt_topicid;channels;optinwhenchecked"
+      value="topic-id-1;Email;true"
+      class="h-4 w-4 text-sky-600 border-gray-300 rounded focus:ring-sky-500"
+      aria-describedby="topic-marketing-desc">
+    <label for="topic-marketing" class="ml-2 text-sm text-gray-700">
+      Marketing Updates
+      <span id="topic-marketing-desc" class="block text-xs text-gray-500">
+        Latest product news and promotions
+      </span>
+    </label>
+  </div>
+
+  <div class="flex items-start mb-3">
+    <input
+      type="checkbox"
+      id="topic-events"
+      name="msdynmkt_topicid;channels;optinwhenchecked"
+      value="topic-id-2;Email;true"
+      class="h-4 w-4 text-sky-600 border-gray-300 rounded focus:ring-sky-500"
+      aria-describedby="topic-events-desc">
+    <label for="topic-events" class="ml-2 text-sm text-gray-700">
+      Event Invitations
+      <span id="topic-events-desc" class="block text-xs text-gray-500">
+        Webinars, conferences, and networking events
+      </span>
+    </label>
+  </div>
+</fieldset>
+```
+
+#### Accessibility Checklist
+
+When creating or reviewing forms, ensure:
+
+- [ ] All form fields have associated `<label>` elements
+- [ ] Required fields are marked with `aria-required="true"` and visual indicators
+- [ ] Form can be completed using only keyboard (Tab, Shift+Tab, Enter, Space)
+- [ ] Focus indicators are visible on all interactive elements
+- [ ] Error messages use `role="alert"` and `aria-live="polite"`
+- [ ] Color contrast meets WCAG 2.1 AA standards (4.5:1 for normal text)
+- [ ] Related form controls are grouped with `<fieldset>` and `<legend>`
+- [ ] Form validates and provides clear, accessible error feedback
+
+---
+
+## Common Issues & Troubleshooting
+
+### Modal doesn't close when clicking Close button
+
+**Problem:** The thank you modal appears after form submission but doesn't close when clicking the Close button.
+
+**Solution:** Ensure the `closeThankYouModal()` JavaScript function is included in your HTML before the closing `</body>` tag:
+
+```html
+<script>
+  function closeThankYouModal() {
+    document.getElementById('thankYouModal').classList.add('hidden');
+  }
+</script>
+</body>
+</html>
+```
+
+### Form doesn't submit to Dynamics 365
+
+**Problem:** Form appears to submit but data doesn't appear in Dynamics 365 CRM.
+
+**Possible causes and solutions:**
+
+1. **Incorrect target audience or properties**
+   - Verify `data-targetaudience` is set to either `contact` or `lead`
+   - Check that `data-targetproperty` values match the exact logical names in your CRM (case-sensitive)
+   - Example: `data-targetproperty="emailaddress1"` not `data-targetproperty="email"`
+
+2. **Missing required Dynamics 365 meta tags**
+   - Ensure these meta tags are in your `<head>` section:
+   ```html
+   <meta type="xrm/designer/setting" name="type" value="marketing-designer-content-editor-document">
+   <meta type="xrm/designer/setting" name="layout-editable" value="marketing-designer-layout-editable">
+   ```
+
+3. **Form not properly saved in D365**
+   - After pasting HTML, save the form in Dynamics 365
+   - Go live with the form before testing
+   - Check form status is "Live" not "Draft"
+
+### Styling doesn't appear or looks broken
+
+**Problem:** Form displays without styling or with broken layout.
+
+**Solutions:**
+
+1. **Tailwind CSS not loading**
+   - Verify the Tailwind CDN script is in your `<head>`:
+   ```html
+   <script src="https://cdn.tailwindcss.com"></script>
+   ```
+   - Check browser console for script loading errors
+   - Ensure you have internet connectivity (Tailwind loads from CDN)
+
+2. **Custom configuration not applied**
+   - Verify the Tailwind configuration script is after the CDN script
+   - Check for JavaScript syntax errors in the config block
+
+### Custom fields not appearing in CRM
+
+**Problem:** Custom fields in the form don't map to CRM fields.
+
+**Solution:**
+
+1. **Find the correct logical name in Dynamics 365:**
+   - Navigate to Settings > Customizations > Customize the System
+   - Select Entities > Contact (or Lead) > Fields
+   - Find your field and note the exact "Name" value (this is the logical name)
+
+2. **Update the form HTML:**
+   ```html
+   <div data-editorblocktype="TextFormField"
+        data-targetaudience="contact"
+        data-targetproperty="your_exact_logical_name">
+   ```
+
+3. **Common logical name examples:**
+   - Email: `emailaddress1`
+   - First Name: `firstname`
+   - Last Name: `lastname`
+   - Phone: `telephone1` or `mobilephone`
+   - Company: `companyname`
+
+### Validation errors not showing
+
+**Problem:** When a required field is empty, no error message appears.
+
+**Solution:** Add custom error handling with JavaScript and ARIA live regions:
+
+```html
+<div class="mb-4">
+  <label for="email" class="block text-gray-800 text-sm font-medium mb-2">
+    Email <span class="text-red-600">*</span>
+  </label>
+  <input
+    id="email"
+    type="email"
+    name="emailaddress1"
+    required
+    aria-required="true"
+    aria-describedby="email-error"
+    class="w-full p-3 border border-gray-300 rounded-lg">
+  <span id="email-error" class="hidden text-red-600 text-sm mt-1" role="alert">
+    Please enter a valid email address
+  </span>
+</div>
+
+<script>
+  document.querySelector('form').addEventListener('submit', function(e) {
+    const email = document.getElementById('email');
+    const error = document.getElementById('email-error');
+
+    if (!email.validity.valid) {
+      error.classList.remove('hidden');
+      e.preventDefault();
+    } else {
+      error.classList.add('hidden');
+    }
+  });
+</script>
+```
+
+### Newsletter consent checkbox not tracking
+
+**Problem:** Consent checkbox doesn't register subscription in Dynamics 365.
+
+**Solution:** Ensure the checkbox uses the correct `name` attribute format:
+
+```html
+<input
+  type="checkbox"
+  id="consentCheckbox"
+  name="msdynmkt_topicid;channels;optinwhenchecked"
+  value="YOUR-TOPIC-ID;Email;true">
+```
+
+- Replace `YOUR-TOPIC-ID` with your actual Dynamics 365 topic/subscription list ID
+- Find topic ID in D365: Marketing > Subscription centers > Topics
+- Format: `{topic-guid};{channel};{opt-in-value}`
+
+---
 
 
 ### Credits
