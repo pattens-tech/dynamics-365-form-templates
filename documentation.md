@@ -1,5 +1,10 @@
 ## Technical Requirements
 
+This in-depth documentation aims to provide the technical background to how the forms work and what are the basic requirements for creating and using forms used in Dynamics 365.
+
+### Basic requirements
+
+
 
 ### Form Element Types
 
