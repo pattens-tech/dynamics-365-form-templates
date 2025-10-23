@@ -37,18 +37,16 @@ Complete list of available form elements:
 
 ### Default form fields for Contacts & Leads
 
-Field | Logical name
-
-Contact / First Name (firstname)
-Contact / Last Name (lastname)
-Contact / Email (emailaddress1)
-
-Lead | Logical name
-Lead / First Name (firstname)
-Lead / Last Name (lastname)
-Lead / Email (emailaddress1)
-Lead / Mobile phone (mobilephone)
-Lead / Company name (companyname)
+| Field | Logical name |
+|-------|--------------|
+| Contact / First Name | firstname |
+| Contact / Last Name | lastname |
+| Contact / Email | emailaddress1 |
+| Lead / First Name | firstname |
+| Lead / Last Name | lastname |
+| Lead / Email | emailaddress1 |
+| Lead / Mobile phone | mobilephone |
+| Lead / Company name | companyname |
 
 ### Field Properties
 Each form field supports the following properties:
