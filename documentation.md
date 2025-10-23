@@ -2,11 +2,20 @@
 
 This in-depth documentation aims to provide the technical background to how the forms work and what are the basic requirements for creating and using forms used in Dynamics 365.
 
+## Code layout
+```
+├─→ Entire file
+│   ├─→ Header
+│   ├─→ Body 
+│   ├─→ CSS: Inline styles + embedded
+│   ├─→ Restrictions: No media queries, no background-image, no border-radius
+│   └─→ Validation: HTML4/XHTML strict
+```     
+
 ## Basic requirements
 
 A form consits of required and optional components:
 
-Required;
 
 ### Header
 
@@ -21,15 +30,7 @@ Required;
         <meta type="xrm/designer/setting" name="additional-fonts" datatype="font" value="<Inter>">
 ```
 
-# Code layout
-```
-├─→ Entire file
-│   ├─→ Header
-│   ├─→ Body 
-│   ├─→ CSS: Inline styles + embedded
-│   ├─→ Restrictions: No media queries, no background-image, no border-radius
-│   └─→ Validation: HTML4/XHTML strict
-```     
+
 
 ### Body
 
