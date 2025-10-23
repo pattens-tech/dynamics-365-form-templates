@@ -223,3 +223,7 @@ All forms should include required accessibility code to support those using assi
 - **Group related fields:** Use `<fieldset>` and `<legend>` for related groups (e.g., consent checkboxes).
 - **Accessible submit button:** Ensure the submit button is a `<button>` or `<input type="submit">` and is clearly labeled.
 
+
+### Credits
+
+This documentation has been re-written from: https://learn.microsoft.com/en-gb/dynamics365/customer-insights/journeys/custom-template-attributes?WT.mc_id=DX-MVP-5003395
