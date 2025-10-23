@@ -22,14 +22,14 @@ Required;
 ```
 
 # Code layout
-
+```
 ├─→ Entire file
 │   ├─→ Header
 │   ├─→ Body 
 │   ├─→ CSS: Inline styles + embedded
 │   ├─→ Restrictions: No media queries, no background-image, no border-radius
 │   └─→ Validation: HTML4/XHTML strict
-        
+```     
 
 ### Body
 
