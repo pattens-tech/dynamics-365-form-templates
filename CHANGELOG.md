@@ -11,10 +11,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Event registration form template
 - Preference center templates
 - Multi-step form workflows
-- Additional styling themes (dark mode, corporate, minimalist)
+- Dark mode support
 - File upload field support
 - Conditional field visibility
 - Integration with reCAPTCHA
+- Advanced theme customization (gradients, custom fonts)
+
+## [1.2.0] - 2025-10-23
+
+### Changed - BREAKING (Simplified Architecture)
+- **Consolidated all theme variants into a single template file**
+- Removed separate theme files (contact-form-corporate.html, contact-form-vibrant.html, contact-form-minimal.html)
+- Implemented one-line theme switching mechanism
+- Users now change theme by editing a single color value in the template
+
+### Added
+- Clear theme configuration instructions in template header
+- Inline theme switching documentation with color presets
+- Theme customization section in technical documentation
+- Support for infinite custom color themes
+
+### Improved
+- **Reduced code duplication** - Only one template file to maintain
+- **Simplified user experience** - Change colors without switching files
+- **Easier maintenance** - Bug fixes and features only need to be updated once
+- **Better customization** - Users can use any hex color, not limited to presets
+- Updated README with visual theme gallery and step-by-step instructions
+- Enhanced documentation with theme customization technical details
+
+### Removed
+- 3 duplicate template variant files (no longer needed)
+- Code duplication across multiple files
 
 ## [1.1.0] - 2025-10-23
 

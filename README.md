@@ -24,18 +24,38 @@ Dynamics 365 has multiple form types: standard forms (such as contact forms), ev
 ### Form Template Preview
 [View Live Demo](https://pattens-tech.github.io/dynamics-365-forms/templates/contact-form.html)
 
-## Color Themes
+## 🎨 Easy Theme Customization
 
-Choose from multiple pre-built color themes to match your brand:
+**One template, infinite possibilities!** Simply change a single color value to switch themes.
 
-| Theme | Description | File | Preview |
-|-------|-------------|------|---------|
-| **Blue (Default)** | Professional blue theme with sky tones | `templates/contact-form.html` | [Demo](https://pattens-tech.github.io/dynamics-365-forms/templates/contact-form.html) |
-| **Corporate** | Sleek slate/gray professional theme | `templates/contact-form-corporate.html` | Clean and modern |
-| **Vibrant** | Eye-catching purple-to-orange gradient | `templates/contact-form-vibrant.html` | Bold and energetic |
-| **Minimal** | Classic black and white minimalist | `templates/contact-form-minimal.html` | Simple and elegant |
+### Available Color Themes
 
-All themes include the same features and functionality - only the colors differ!
+| Theme | Color Code | Description | Use Case |
+|-------|-----------|-------------|----------|
+| **🔵 Blue** | `#0078d4` | Professional and trustworthy | Default, tech, corporate |
+| **⚫ Corporate** | `#1e293b` | Sleek slate gray | B2B, enterprise, professional |
+| **🟣 Vibrant** | `#9333ea` | Bold purple | Creative, events, youth brands |
+| **⚪ Minimal** | `#000000` | Classic black and white | Luxury, design studios, modern |
+| **🎨 Custom** | `#??????` | Your brand color | Anything you want! |
+
+### How to Change Theme
+
+1. Open `templates/contact-form.html`
+2. Find line 53 (the Tailwind configuration)
+3. Replace `#0078d4` with your chosen color code
+4. Save and you're done!
+
+**Example:**
+```javascript
+colors: {
+    brand: {
+        DEFAULT: /* @brand-color */ '#9333ea' /* @brand-color */
+        // Changed to Vibrant theme!
+    }
+}
+```
+
+That's it! The entire form (buttons, focus rings, checkboxes) automatically updates to your chosen color.
 
 ---
 
@@ -83,22 +103,15 @@ For detailed technical documentation, see [documentation.md](./documentation.md)
 
 ### Basic Customization
 
-**Change Brand Colors:**
-```html
-<script>
-tailwind.config = {
-    theme: {
-        extend: {
-            colors: {
-                brand: {
-                    DEFAULT: '#YOUR-COLOR-HERE'
-                }
-            }
-        }
-    }
-}
-</script>
+**Change Colors:**
+
+The template includes clear instructions at the top of the file. Just change one line:
+
+```javascript
+DEFAULT: /* @brand-color */ '#0078d4' /* @brand-color */
 ```
+
+Replace `#0078d4` with any hex color to instantly theme the entire form!
 
 **Add Custom Fields:**
 ```html
@@ -140,13 +153,15 @@ tailwind.config = {
 
 ## Features
 
+- **🎨 One-Line Theme Switching** - Change the entire color scheme by editing a single value
 - **Modern Design** - Clean, professional styling with Tailwind CSS
 - **Fully Accessible** - WCAG 2.1 compliant with proper ARIA labels
 - **Mobile Responsive** - Works seamlessly on all device sizes
-- **Easy Customization** - Utility-first CSS for quick modifications
+- **Easy Customization** - Change colors, add fields, modify styling with ease
 - **Fast Loading** - CDN-hosted assets for optimal performance
 - **Thank You Modal** - Built-in success confirmation UI
 - **Consent Management** - Newsletter opt-in with topic tracking
+- **Single File** - One template to maintain, zero code duplication
 
 ---
 
@@ -181,10 +196,11 @@ For more detailed troubleshooting, see the [documentation](./documentation.md).
 - [ ] Event registration form templates
 - [ ] Preference center templates
 - [ ] Multi-step form workflows
-- [ ] Additional styling themes (dark mode, corporate, minimalist)
+- [ ] Dark mode support
 - [ ] File upload field support
 - [ ] Conditional field visibility
 - [ ] Integration with reCAPTCHA
+- [ ] Advanced theme customization (gradients, custom fonts)
 
 ---
 

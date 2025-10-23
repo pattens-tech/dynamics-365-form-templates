@@ -6,6 +6,38 @@ This in-depth documentation aims to provide the technical background to how the 
 
 [View](https://pattens-tech.github.io/dynamics-365-forms/templates/contact-form.html)
 
+### Theme Customization
+
+The template uses a single brand color variable that controls the entire form's color scheme. This makes it easy to match your brand with minimal effort.
+
+**How to Change the Theme:**
+
+1. Locate the Tailwind configuration section in the `<head>` (around line 47-63)
+2. Find the brand color setting:
+   ```javascript
+   brand: {
+       DEFAULT: /* @brand-color */ '#0078d4' /* @brand-color */
+   }
+   ```
+3. Replace `#0078d4` with your desired hex color code
+4. The entire form will automatically update (buttons, focus rings, checkboxes, etc.)
+
+**Pre-defined Theme Colors:**
+
+- **Blue (Default):** `#0078d4` - Professional and trustworthy
+- **Corporate:** `#1e293b` - Sleek slate gray
+- **Vibrant:** `#9333ea` - Bold purple
+- **Minimal:** `#000000` - Classic black and white
+
+**Technical Details:**
+
+The template uses Tailwind CSS's custom color configuration with the `brand` class. Throughout the HTML, elements use:
+- `bg-brand` - Background color
+- `text-brand` - Text color
+- `focus:ring-brand` - Focus ring color
+- `border-brand` - Border color (when applicable)
+
+This ensures consistent theming across all form elements with a single color definition.
 
 ### Form element types
 
