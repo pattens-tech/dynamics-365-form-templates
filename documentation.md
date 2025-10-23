@@ -36,6 +36,7 @@ Complete list of available form elements:
 
 
 ### Default form fields for Contacts & Leads
+These may different depending on if you have customized your Dynamics 365 instance.
 
 | Field | Logical name |
 |-------|--------------|
