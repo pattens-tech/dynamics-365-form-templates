@@ -16,10 +16,11 @@ This in-depth documentation aims to provide the technical background to how the 
 ```
 
 
-### Form Element Types
+### Form element types
 
 Complete list of available form elements:
 
+```
 | Element | `data-editorblocktype` | Purpose |
 |---------|----------------------|---------|
 | Form container | `FormBlock` | Wraps entire form (required) |
@@ -32,6 +33,8 @@ Complete list of available form elements:
 | Captcha | `CaptchaBlock` | Captcha verification |
 | Subscription list | `SubscriptionListBlock` | Subscription options |
 | Forward to friend | `ForwardToFriendBlock` | Forward functionality |
+
+```
 
 ### Default form fields for Contacts & Leads
 
