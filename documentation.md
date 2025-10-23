@@ -59,36 +59,35 @@ Both the header structure and body structure are required in each form in order 
 
 ```
 ├─→ Entire file
+│   ├─→ Header (Dynamics 365 tags)
 │   ├─→ Header (HTML)
-│   ├─→ Header (Dynamics 365)
 │   └─→ Body (Form)
 ```
 
-### Header (HTML)
+### Header
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-         <meta charset="UTF-8">
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <!-- Required for Dynamics 365 -->
-
+         <!-- Required: Dynamics 365 -->
          <meta type="xrm/designer/setting" name="type" value="marketing-designer-content-editor-document">
          <meta type="xrm/designer/setting" name="layout-editable" value="marketing-designer-layout-editable">
          <meta type="xrm/designer/setting" name="additional-fonts" datatype="font" value="<Inter>">
 
+         <!-- Required: HTML document setup -->
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
         <!-- Required: Tailwind CSS -->
         <script src="https://cdn.tailwindcss.com"></script>
 
         <!-- Google Fonts: Roboto -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
-
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
         
-        <!-- Tailwind Configuration -->
+        <!-- Required: Tailwind Configuration -->
         <script>
         tailwind.config = {
             theme: {
@@ -105,8 +104,6 @@ Both the header structure and body structure are required in each form in order 
             }
         }
  </script>
-
-   
 </head>
 ```
 
@@ -149,7 +146,6 @@ Both the header structure and body structure are required in each form in order 
   </div>
 </div>
 ```
-
 
 
 ### Advanced styling
