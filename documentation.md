@@ -67,58 +67,29 @@ Both the header structure and body structure are required in each form in order 
 ### Header (HTML)
 
 ```html
-<!DOCTYPE html><html><head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Contact form</title>
-        <meta name="referrer" content="never">
-        <meta type="xrm/designer/setting" name="type" value="marketing-designer-content-editor-document">
-        <meta type="xrm/designer/setting" name="layout-editable" value="marketing-designer-layout-editable">
-        <meta type="xrm/designer/setting" name="additional-fonts" datatype="font" value="<Inter>">
-```
-
-### Header (Dynamics 365)
-
-```
-      <meta type="xrm/designer/setting" name="type" value="marketing-designer-content-editor-document">
-        <meta type="xrm/designer/setting" name="layout-editable" value="marketing-designer-layout-editable">
-        <meta type="xrm/designer/setting" name="additional-fonts" datatype="font" value="<Inter>">
-```
-
-### Body (Form)
-
-
-```html
-<!-- Creates editable container (in <body>) -->
-<div data-container="true">
-  <!-- Users can drag elements here -->
-</div>
-
-<!-- 3. Define design element -->
-<div data-editorblocktype="Text">
-  <p>Content</p>
-</div>
-```
-
-### Header Structure
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Required: Designer Mode Activation -->
-    <meta type="xrm/designer/setting" 
-          name="type" 
-          value="marketing-designer-content-editor-document">
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Required: Tailwind CSS -->
+        <!-- Required for Dynamics 365 -->
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Tailwind Configuration -->
-    <script>
+         <meta type="xrm/designer/setting" name="type" value="marketing-designer-content-editor-document">
+         <meta type="xrm/designer/setting" name="layout-editable" value="marketing-designer-layout-editable">
+         <meta type="xrm/designer/setting" name="additional-fonts" datatype="font" value="<Inter>">
+
+        <!-- Required: Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Google Fonts: Roboto -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        
+        <!-- Tailwind Configuration -->
+        <script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -133,18 +104,16 @@ Both the header structure and body structure are required in each form in order 
                 }
             }
         }
-    </script>
+ </script>
 
-    <!-- Google Fonts: Roboto -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+   
 </head>
 ```
 
 
 
-### Body Structure
+### Body (Form)
+
 ```html
 <body>
     <div class="form-container">
@@ -183,44 +152,6 @@ Both the header structure and body structure are required in each form in order 
 
 
 
-
-
-### Form Template Structure
-
-Basic form structure requirements:
-
-```html
-<div data-container="true">
-  <div data-editorblocktype="FormBlock">
-
-    <!-- Email field (typically required) -->
-    <div data-editorblocktype="Field-email">
-      <!-- Managed by designer -->
-    </div>
-
-    <!-- First name field (optional) -->
-    <div data-editorblocktype="Field-firstname">
-      <!-- Managed by designer -->
-    </div>
-
-    <!-- Last name field (optional) -->
-    <div data-editorblocktype="Field-lastname">
-      <!-- Managed by designer -->
-    </div>
-
-    <!-- Checkbox example (optional) -->
-    <div data-editorblocktype="Field-checkbox">
-      <!-- Managed by designer -->
-    </div>
-
-    <!-- Submit button (required) -->
-    <div data-editorblocktype="SubmitButtonBlock">
-      <!-- Managed by designer -->
-    </div>
-
-  </div>
-</div>
-```
 ### Advanced styling
 
 Using Tailwind CSS enables faster forms due to the CSS being hosted externally.
