@@ -17,3 +17,6 @@ Dynamics 365 has multiple form types; standard forms, such as a contact form, Ev
 ### This repo
 
 These custom templated Dynamics 365 forms are rebuilt from the ground up with a modern look and advanced features enabling you to break free of the standard looking forms that come as default in Dynamics 365 Customer Insights. 
+
+### Form template preview
+https://pattens-tech.github.io/dynamics-365-forms/contact-form.html
