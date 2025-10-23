@@ -209,10 +209,11 @@ Using Tailwind CSS enables faster forms due to the CSS being hosted externally.
    - Container width: `max-w-3xl`
    - Center alignment: `mx-auto`
    - Responsive padding: `px-4 sm:px-6 lg:px-8`
-   - 
+
+     
 ### Accessibility
 
-Design forms to be usable by everyone, including people using assistive technologies. Follow these best practices:
+All forms should include required accessibility code to support those using assistative technologies to read and fill out forms.
 
 - **Label every field clearly:** Use `<label>` elements linked to inputs via `for` and `id` attributes.
 - **Keyboard navigation:** Ensure all interactive elements (fields, buttons, checkboxes) are reachable and usable via Tab/Shift+Tab.
@@ -221,36 +222,4 @@ Design forms to be usable by everyone, including people using assistive technolo
 - **Contrast and focus:** Use sufficient color contrast and clear focus indicators for all controls.
 - **Group related fields:** Use `<fieldset>` and `<legend>` for related groups (e.g., consent checkboxes).
 - **Accessible submit button:** Ensure the submit button is a `<button>` or `<input type="submit">` and is clearly labeled.
-- **Test with screen readers:** Validate form usability with VoiceOver (macOS), NVDA, or JAWS.
-
-- 
-### Implementation Checklist
-
-#### Required Elements
-- [ ] Designer meta tag in `<head>`
-- [ ] FormBlock wrapper for form content
-- [ ] At least one input field (typically email)
-- [ ] SubmitButtonBlock component
-
-#### Form Configuration
-- [ ] Configure field validation in Properties panel
-- [ ] Set required fields
-- [ ] Configure form submission behavior
-- [ ] Test form submission
-- [ ] Validate error messages display correctly
-
-#### Accessibility
-- [ ] All fields have proper labels
-- [ ] Labels linked to inputs via `for` and `id`
-- [ ] Keyboard navigation works
-- [ ] Error messages visible to screen readers
-- [ ] Sufficient color contrast
-- [ ] Focus indicators visible
-
-#### Testing
-- [ ] Test form submission
-- [ ] Validate required fields
-- [ ] Check mobile responsiveness
-- [ ] Test with screen reader
-- [ ] Verify data saves to CRM correctly
 
