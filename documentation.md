@@ -164,6 +164,12 @@ Both the header structure and body structure are required in each form in order 
       </div>
     </div>
 
+
+```
+
+### Body (Form)
+
+```html
     <!-- Thank You Modal -->
 
     <div id="thankYouModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
@@ -176,8 +182,8 @@ Both the header structure and body structure are required in each form in order 
     </div>
   </form>
 </body>
-```
 
+```
 
 ### Advanced styling
 
