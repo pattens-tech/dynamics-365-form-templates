@@ -7,13 +7,6 @@ This in-depth documentation aims to provide the technical background to how the 
 [/form-example.html](/form-example.html)
 
 
-## Code layout
-```
-├─→ Entire file
-│   ├─→ Header
-│   ├─→ Body 
-│   └─→ Validation: HTML4/XHTML strict
-```
 
 
 ### Form element types
@@ -60,12 +53,19 @@ Each form field supports the following properties:
 | Validation | Input validation rule | Custom RegExp |
 | Hidden | Hide field from view | true/false |
 
-## Basic requirements
+## Requirements
 
 Both the header structure and body structure are required in each form in order to function. 
 
+```
+├─→ Entire file
+│   ├─→ Header (HTML)
+│   ├─→ Header (Dynamics 365)
+│   ├─→ Body (Form)
+│   └─→ Validation: HTML4/XHTML strict
+```
 
-### Header
+### Header (HTML)
 
 ```html
 <!DOCTYPE html><html><head>
@@ -78,7 +78,15 @@ Both the header structure and body structure are required in each form in order 
         <meta type="xrm/designer/setting" name="additional-fonts" datatype="font" value="<Inter>">
 ```
 
-### Body
+### Header (Dynamics 365)
+
+```
+      <meta type="xrm/designer/setting" name="type" value="marketing-designer-content-editor-document">
+        <meta type="xrm/designer/setting" name="layout-editable" value="marketing-designer-layout-editable">
+        <meta type="xrm/designer/setting" name="additional-fonts" datatype="font" value="<Inter>">
+```
+
+### Body (Form)
 
 
 ```html
