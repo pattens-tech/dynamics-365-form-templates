@@ -20,7 +20,7 @@ This in-depth documentation aims to provide the technical background to how the 
 
 Complete list of available form elements:
 
-```
+
 | Element | `data-editorblocktype` | Purpose |
 |---------|----------------------|---------|
 | Form container | `FormBlock` | Wraps entire form (required) |
@@ -34,7 +34,6 @@ Complete list of available form elements:
 | Subscription list | `SubscriptionListBlock` | Subscription options |
 | Forward to friend | `ForwardToFriendBlock` | Forward functionality |
 
-```
 
 ### Default form fields for Contacts & Leads
 
