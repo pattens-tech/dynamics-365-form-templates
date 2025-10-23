@@ -63,7 +63,7 @@ Before using these templates, ensure you have:
 
 2. **Access Dynamics 365 Marketing Forms**
    - Log into Dynamics 365 Customer Insights
-   - Navigate to **Marketing** > **Marketing Forms**
+   - Navigate to **Channels* > **Forms**
    - Click **New** to create a new form
 
 3. **Switch to HTML Editor**
