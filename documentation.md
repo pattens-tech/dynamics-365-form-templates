@@ -2,48 +2,19 @@
 
 This in-depth documentation aims to provide the technical background to how the forms work and what are the basic requirements for creating and using forms used in Dynamics 365.
 
+### Complete Form Example
+
+[/form-example.html](/form-example.html)
+
+
 ## Code layout
 ```
 ├─→ Entire file
 │   ├─→ Header
 │   ├─→ Body 
 │   └─→ Validation: HTML4/XHTML strict
-```     
-
-## Basic requirements
-
-A form consits of required and optional components:
-
-
-### Header
-
-```html
-<!DOCTYPE html><html><head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Contact form</title>
-        <meta name="referrer" content="never">
-        <meta type="xrm/designer/setting" name="type" value="marketing-designer-content-editor-document">
-        <meta type="xrm/designer/setting" name="layout-editable" value="marketing-designer-layout-editable">
-        <meta type="xrm/designer/setting" name="additional-fonts" datatype="font" value="<Inter>">
 ```
 
-
-
-### Body
-
-
-```html
-<!-- Creates editable container (in <body>) -->
-<div data-container="true">
-  <!-- Users can drag elements here -->
-</div>
-
-<!-- 3. Define design element -->
-<div data-editorblocktype="Text">
-  <p>Content</p>
-</div>
-```
 
 ### Form Element Types
 
@@ -77,7 +48,6 @@ Lead / Email (emailaddress1)
 Lead / Mobile phone (mobilephone)
 Lead / Company name (companyname)
 
-
 ### Field Properties
 Each form field supports the following properties:
 
@@ -89,24 +59,38 @@ Each form field supports the following properties:
 | Validation | Input validation rule | Custom RegExp |
 | Hidden | Hide field from view | true/false |
 
-### Accessibility
-
-Design forms to be usable by everyone, including people using assistive technologies. Follow these best practices:
-
-- **Label every field clearly:** Use `<label>` elements linked to inputs via `for` and `id` attributes.
-- **Keyboard navigation:** Ensure all interactive elements (fields, buttons, checkboxes) are reachable and usable via Tab/Shift+Tab.
-- **ARIA roles and attributes:** Use ARIA attributes (e.g., `aria-required`, `aria-label`, `aria-describedby`) for custom controls or when native semantics are missing.
-- **Error messages:** Make error messages visible to screen readers (e.g., use `aria-live="polite"` on error containers).
-- **Contrast and focus:** Use sufficient color contrast and clear focus indicators for all controls.
-- **Group related fields:** Use `<fieldset>` and `<legend>` for related groups (e.g., consent checkboxes).
-- **Accessible submit button:** Ensure the submit button is a `<button>` or `<input type="submit">` and is clearly labeled.
-- **Test with screen readers:** Validate form usability with VoiceOver (macOS), NVDA, or JAWS.
-
-
-
-## Implementation Guide
+## Basic requirements
 
 Both the header structure and body structure are required in each form in order to function. 
+
+
+### Header
+
+```html
+<!DOCTYPE html><html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact form</title>
+        <meta name="referrer" content="never">
+        <meta type="xrm/designer/setting" name="type" value="marketing-designer-content-editor-document">
+        <meta type="xrm/designer/setting" name="layout-editable" value="marketing-designer-layout-editable">
+        <meta type="xrm/designer/setting" name="additional-fonts" datatype="font" value="<Inter>">
+```
+
+### Body
+
+
+```html
+<!-- Creates editable container (in <body>) -->
+<div data-container="true">
+  <!-- Users can drag elements here -->
+</div>
+
+<!-- 3. Define design element -->
+<div data-editorblocktype="Text">
+  <p>Content</p>
+</div>
+```
 
 ### Header Structure
 ```html
@@ -189,35 +173,6 @@ Both the header structure and body structure are required in each form in order 
 ```
 
 
-### Complete Form Example
-
-[/form-example.html](/form-example.html)
-
-### Advanced styling
-
-Using Tailwind CSS enables faster forms due to the CSS being hosted externally.
-
-1. Typography
-   - Use `font-roboto` for consistent font family
-   - Headers: `font-medium` (500 weight)
-   - Body: `font-normal` (400 weight)
-
-2. Colors
-   - Brand color: `text-brand` or `bg-brand`
-   - Background: `bg-gray-50` for form background
-   - Text: `text-gray-900` for primary text
-   - Secondary text: `text-gray-500`
-
-3. Spacing
-   - Container padding: `p-8`
-   - Between fields: `mb-4`
-   - Section spacing: `mb-8`
-
-4. Layout
-   - Container width: `max-w-3xl`
-   - Center alignment: `mx-auto`
-   - Responsive padding: `px-4 sm:px-6 lg:px-8`
-
 
 
 
@@ -257,7 +212,45 @@ Basic form structure requirements:
   </div>
 </div>
 ```
+### Advanced styling
 
+Using Tailwind CSS enables faster forms due to the CSS being hosted externally.
+
+1. Typography
+   - Use `font-roboto` for consistent font family
+   - Headers: `font-medium` (500 weight)
+   - Body: `font-normal` (400 weight)
+
+2. Colors
+   - Brand color: `text-brand` or `bg-brand`
+   - Background: `bg-gray-50` for form background
+   - Text: `text-gray-900` for primary text
+   - Secondary text: `text-gray-500`
+
+3. Spacing
+   - Container padding: `p-8`
+   - Between fields: `mb-4`
+   - Section spacing: `mb-8`
+
+4. Layout
+   - Container width: `max-w-3xl`
+   - Center alignment: `mx-auto`
+   - Responsive padding: `px-4 sm:px-6 lg:px-8`
+   - 
+### Accessibility
+
+Design forms to be usable by everyone, including people using assistive technologies. Follow these best practices:
+
+- **Label every field clearly:** Use `<label>` elements linked to inputs via `for` and `id` attributes.
+- **Keyboard navigation:** Ensure all interactive elements (fields, buttons, checkboxes) are reachable and usable via Tab/Shift+Tab.
+- **ARIA roles and attributes:** Use ARIA attributes (e.g., `aria-required`, `aria-label`, `aria-describedby`) for custom controls or when native semantics are missing.
+- **Error messages:** Make error messages visible to screen readers (e.g., use `aria-live="polite"` on error containers).
+- **Contrast and focus:** Use sufficient color contrast and clear focus indicators for all controls.
+- **Group related fields:** Use `<fieldset>` and `<legend>` for related groups (e.g., consent checkboxes).
+- **Accessible submit button:** Ensure the submit button is a `<button>` or `<input type="submit">` and is clearly labeled.
+- **Test with screen readers:** Validate form usability with VoiceOver (macOS), NVDA, or JAWS.
+
+- 
 ### Implementation Checklist
 
 #### Required Elements
