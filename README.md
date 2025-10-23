@@ -6,33 +6,16 @@
 This section provides a high-level understanding of the different form types available in Dynamics 365 Customer Insights, their intended use cases, and the key considerations when designing forms for marketing, event registration, and consent management. Use this as a starting point to plan and implement forms that meet both business and technical requirements.
 
 ### Form Types and Use Cases
-Each form type serves a specific purpose in Dynamics 365 Customer Insights marketing workflows:
+Dynamics 365 has multiple form types; standard forms, such as a contact form, Event forms and preference centers. This repo focuses on standard forms, but Event forms and preferences are comming soon.
 
-### Form Types
-- **Marketing Forms:**
+### Standard forms
   - Purpose: Capture new leads or contacts
   - Target: Lead or contact audience
+  - Usage: Contact forms, newsletter subscription etc
   - Features: Standard form fields, validation, submission handling
 
-- **Event Registration Forms:**
-  - Purpose: Allow registration to events
-  - Target: Contact audience only
-  - Special Components:
-    - Session list selector
-    - Speaker information
-    - Event details display
-    - Registration record creation
 
-- **Preference Centers:**
-  - Purpose: Manage consent preferences for contacts
-  - Target: Existing contacts
-  - Features: Consent management, subscription preferences
-  - Full Preference Center documentation: [preference-center.md](preference-center.md)
 
-### Form Audience Configuration
-- Marketing forms: Target leads or contacts
-- Event forms: Can only target contact audience
-- Preference centers: Target existing contacts for consent management
 
 
 
