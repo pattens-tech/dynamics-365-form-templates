@@ -21,6 +21,23 @@ Required;
         <meta type="xrm/designer/setting" name="additional-fonts" datatype="font" value="<Inter>">
 ```
 
+#Form structure
+
+
+```html
+<!-- 1. Enable drag-and-drop designer (in <head>) -->
+<meta type="xrm/designer/setting" name="type" value="marketing-designer-content-editor-document">
+
+<!-- 2. Create editable container (in <body>) -->
+<div data-container="true">
+  <!-- Users can drag elements here -->
+</div>
+
+<!-- 3. Define design element -->
+<div data-editorblocktype="Text">
+  <p>Content</p>
+</div>
+```
 
 ### Form Element Types
 
