@@ -1,5 +1,10 @@
 # Dynamics 365 Form Templates
 
+[![License](https://img.shields.io/github/license/pattens-tech/dynamics-365-forms)](LICENSE)
+[![HTML Validation](https://img.shields.io/badge/HTML-Valid-brightgreen)](https://validator.w3.org/)
+[![GitHub stars](https://img.shields.io/github/stars/pattens-tech/dynamics-365-forms?style=social)](https://github.com/pattens-tech/dynamics-365-forms/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/pattens-tech/dynamics-365-forms?style=social)](https://github.com/pattens-tech/dynamics-365-forms/network/members)
+
 Modern, accessible, and customizable form templates for Dynamics 365 Customer Insights - built with Tailwind CSS.
 
 ## Overview
@@ -18,6 +23,19 @@ Dynamics 365 has multiple form types: standard forms (such as contact forms), ev
 
 ### Form Template Preview
 [View Live Demo](https://pattens-tech.github.io/dynamics-365-forms/contact-form.html)
+
+## Color Themes
+
+Choose from multiple pre-built color themes to match your brand:
+
+| Theme | Description | File | Preview |
+|-------|-------------|------|---------|
+| **Blue (Default)** | Professional blue theme with sky tones | `contact-form.html` | [Demo](https://pattens-tech.github.io/dynamics-365-forms/contact-form.html) |
+| **Corporate** | Sleek slate/gray professional theme | `contact-form-corporate.html` | Clean and modern |
+| **Vibrant** | Eye-catching purple-to-orange gradient | `contact-form-vibrant.html` | Bold and energetic |
+| **Minimal** | Classic black and white minimalist | `contact-form-minimal.html` | Simple and elegant |
+
+All themes include the same features and functionality - only the colors differ!
 
 ---
 
