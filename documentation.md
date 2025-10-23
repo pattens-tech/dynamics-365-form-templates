@@ -11,20 +11,20 @@ This in-depth documentation aims to provide the technical background to how the 
 
 Complete list of available form elements:
 
-
 | Element | `data-editorblocktype` | Purpose |
 |---------|----------------------|---------|
-| Form container | `FormBlock` | Wraps entire form (required) |
 | Email field | `Field-email` | Email input |
 | Text fields | `Field-firstname`, `Field-lastname` | Text inputs |
-| Custom field | `Field-{name}` | Any CRM field (use logical name) |
 | Checkbox | `Field-checkbox` | Checkbox field |
 | Submit button | `SubmitButtonBlock` | Form submission (required) |
-| Reset button | `ResetButtonBlock` | Form reset |
-| Captcha | `CaptchaBlock` | Captcha verification |
-| Subscription list | `SubscriptionListBlock` | Subscription options |
-| Forward to friend | `ForwardToFriendBlock` | Forward functionality |
 
+Optional form elements:
+
+| Custom field | `Field-{name}` | Any CRM field (use logical name) |
+| Subscription list | `SubscriptionListBlock` | Subscription options |
+| Captcha | `CaptchaBlock` | Captcha verification |
+| Reset button | `ResetButtonBlock` | Form reset |
+| Forward to friend | `ForwardToFriendBlock` | Forward functionality |
 
 ### Default form fields for Contacts & Leads
 These may different depending on if you have customized your Dynamics 365 instance.
