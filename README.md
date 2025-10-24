@@ -7,8 +7,7 @@
 
 Beautiful, modern, accessible, and customizable form templates for Dynamics 365 Customer Insights - built with Tailwind CSS.
 
-![image](https://repository-images.githubusercontent.com/1082111680/018e4781-7244-4382-8694-e9b2b21f0b6f)
-
+![image](https://repository-images.githubusercontent.com/1082111680/671a8db4-7243-45e4-9a30-f3332bd3a4d0)
 
 ## Overview
 
