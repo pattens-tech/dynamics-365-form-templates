@@ -237,18 +237,7 @@ Create dynamic forms that adapt based on user input:
 3. Set your if/then rules
 4. Configure show/hide actions for other fields
 
-## Monitoring Form Performance
 
-Track your form effectiveness in **D365 Customer Insights**:
-
-1. Go to **Analytics** > **Forms**
-2. Review metrics:
-   - Submission rate
-   - Abandonment rate
-   - Field completion times
-   - Error frequency
-
-3. Use insights to optimize form design
 
 ---
 
