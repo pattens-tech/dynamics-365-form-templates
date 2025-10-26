@@ -98,7 +98,10 @@ const CONFIG = {
   selectors: {
     emailInput: '#emailaddress1',
     messageContainer: '#emailaddress1-message'
-  }
+  },
+
+  // API endpoint for MX validation
+  apiEndpoint: 'https://email-validation-neon.vercel.app/api/validate-email'
 };
 
 // ============================================================
@@ -131,10 +134,27 @@ function isPersonalEmail(email) {
 }
 
 /**
+ * Check if email domain has MX records via API
+ */
+async function checkMXRecords(email) {
+  try {
+    const response = await fetch(
+      `${CONFIG.apiEndpoint}?email=${encodeURIComponent(email)}`
+    );
+    const data = await response.json();
+    return data.hasMXRecords;
+  } catch (error) {
+    console.error('MX validation failed:', error);
+    // Fail open - don't block on API errors
+    return true;
+  }
+}
+
+/**
  * Validate email and return validation state
  * @returns {Object} { state: 'error'|'warning'|'success', message: string }
  */
-function validateEmail(email) {
+async function validateEmail(email) {
   // Check if empty
   if (!email || email.trim() === '') {
     return {
@@ -143,7 +163,7 @@ function validateEmail(email) {
     };
   }
 
-  // Check format
+  // Check format first
   if (!isValidEmailFormat(email)) {
     return {
       state: 'error',
@@ -151,11 +171,20 @@ function validateEmail(email) {
     };
   }
 
-  // Check if personal email
+  // Check if personal email (this should show orange warning)
   if (isPersonalEmail(email)) {
     return {
       state: 'warning',
       message: CONFIG.messages.personal
+    };
+  }
+
+  // Check MX records for work emails
+  const hasMX = await checkMXRecords(email);
+  if (!hasMX) {
+    return {
+      state: 'error',
+      message: 'This email address isn\'t valid.'
     };
   }
 
@@ -292,13 +321,46 @@ function clearValidationUI(input, messageContainer) {
 }
 
 // ============================================================
+// FORM SUBMISSION HANDLING
+// ============================================================
+
+/**
+ * Track validation state
+ */
+let isEmailValid = false;
+
+/**
+ * Handle form submission - prevent if email invalid
+ */
+function handleFormSubmit(event) {
+  const emailInput = document.querySelector(CONFIG.selectors.emailInput);
+  const email = emailInput?.value.trim();
+  
+  // If email is empty or invalid, prevent submission
+  if (!email || !isEmailValid) {
+    event.preventDefault();
+    emailInput?.focus();
+    
+    const messageContainer = document.querySelector(CONFIG.selectors.messageContainer);
+    if (messageContainer) {
+      showMessage(messageContainer, 'error', 'Please enter a valid work email address');
+      updateBorder(emailInput, 'error');
+    }
+    
+    return false;
+  }
+  
+  return true;
+}
+
+// ============================================================
 // EVENT HANDLERS
 // ============================================================
 
 /**
  * Handle blur event on email input
  */
-function handleBlur(event) {
+async function handleBlur(event) {
   const input = event.target;
   const messageContainer = document.querySelector(CONFIG.selectors.messageContainer);
   
@@ -312,12 +374,20 @@ function handleBlur(event) {
   // If field is empty, clear validation
   if (email === '') {
     clearValidationUI(input, messageContainer);
+    isEmailValid = false;
     return;
   }
 
+  // Show loading state
+  showMessage(messageContainer, 'warning', 'Validating...');
+  updateBorder(input, 'warning');
+
   // Validate and update UI
-  const validationResult = validateEmail(email);
+  const validationResult = await validateEmail(email);
   updateUI(input, messageContainer, validationResult);
+  
+  // Track if email is valid (success state only)
+  isEmailValid = validationResult.state === 'success';
 }
 
 /**
@@ -371,6 +441,12 @@ function initValidation() {
   // Attach event listeners
   emailInput.addEventListener('blur', handleBlur);
   emailInput.addEventListener('focus', handleFocus);
+
+  // Attach form submit handler
+  const form = emailInput.closest('form');
+  if (form) {
+    form.addEventListener('submit', handleFormSubmit);
+  }
 
   console.log('Email validation initialized successfully');
 }
