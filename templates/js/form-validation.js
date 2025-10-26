@@ -349,15 +349,15 @@ function initValidation() {
     return;
   }
 
-  // Add transition class to input for smooth border animation
-  emailInput.classList.add(CONFIG.transitionClass);
+  // Add transition classes to input for smooth border animation
+  emailInput.classList.add('transition-all', 'duration-300', 'ease-in-out');
 
   // Create message container if it doesn't exist
   let messageContainer = document.querySelector(CONFIG.selectors.messageContainer);
   if (!messageContainer) {
     messageContainer = document.createElement('div');
     messageContainer.id = 'emailaddress1-message';
-    messageContainer.className = `hidden opacity-0 text-sm mt-2 ${CONFIG.transitionClass}`;
+    messageContainer.classList.add('hidden', 'opacity-0', 'text-sm', 'mt-2', 'transition-all', 'duration-300', 'ease-in-out');
     messageContainer.setAttribute('role', 'alert');
     messageContainer.setAttribute('aria-live', 'polite');
     
