@@ -1,4 +1,4 @@
-# Dynamics 365 Customer Insights Form Translator
+# Dynamics 365 Customer Insights Form Templates
 
 [![License](https://img.shields.io/github/license/pattens-tech/dynamics-365-forms)](LICENSE)
 [![HTML Validation](https://img.shields.io/badge/HTML-Valid-brightgreen)](https://validator.w3.org/)
