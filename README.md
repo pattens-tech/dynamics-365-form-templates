@@ -26,7 +26,7 @@ Dynamics 365 has multiple form types: standard forms (such as contact forms), ev
   - **Features:** Standard form fields, validation, submission handling, consent management
 
 ### Form Template Preview
-[View Live Demo](https://pattens-tech.github.io/dynamics-365-forms/templates/contact-form.html)
+[View Live Demo](https://pattens-tech.github.io/Dynamics-365-Customer-Insights-Form-Templates/templates/contact-form.html)
 
 ## 🎨 Easy Theme Customization
 
