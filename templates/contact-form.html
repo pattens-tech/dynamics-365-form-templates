@@ -373,14 +373,14 @@
       
       if (!value) {
         showValidationMessage(field, VALIDATION_CONFIG.messages.required, 'error');
-        if (fieldValidationState.hasOwnProperty(fieldName)) {
+        if (fieldName in fieldValidationState) {
           fieldValidationState[fieldName] = false;
           updateSubmitButtonState();
         }
         return false;
       }
       hideValidationMessage(field);
-      if (fieldValidationState.hasOwnProperty(fieldName)) {
+      if (fieldName in fieldValidationState) {
         fieldValidationState[fieldName] = true;
         updateSubmitButtonState();
       }
