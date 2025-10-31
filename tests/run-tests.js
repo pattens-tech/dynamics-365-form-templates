@@ -365,6 +365,50 @@ runner.test('Validation configuration is customizable', () => {
 });
 
 // ============================================================
+// SUBMIT BUTTON VALIDATION TESTS
+// ============================================================
+
+runner.test('Submit button has ID attribute', () => {
+  runner.assertIncludes(
+    formHTML,
+    'id="submitButton"',
+    'Submit button does not have ID attribute'
+  );
+});
+
+runner.test('Submit button is disabled by default', () => {
+  const submitButtonSection = formHTML.match(/id="submitButton"[^>]*>/);
+  runner.assert(
+    submitButtonSection && submitButtonSection[0].includes('disabled'),
+    'Submit button is not disabled by default'
+  );
+});
+
+runner.test('Submit button has grey styling for disabled state', () => {
+  const submitButtonSection = formHTML.match(/id="submitButton"[^>]*>/);
+  runner.assert(
+    submitButtonSection && submitButtonSection[0].includes('bg-gray-400'),
+    'Submit button does not have grey styling for disabled state'
+  );
+});
+
+runner.test('Submit button state update function exists', () => {
+  runner.assertIncludes(
+    formHTML,
+    'updateSubmitButtonState',
+    'Submit button state update function not found'
+  );
+});
+
+runner.test('Field validation state tracking exists', () => {
+  runner.assertIncludes(
+    formHTML,
+    'fieldValidationState',
+    'Field validation state tracking not found'
+  );
+});
+
+// ============================================================
 // RUN ALL TESTS
 // ============================================================
 

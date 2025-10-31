@@ -143,7 +143,7 @@
       </div>
 
       <div class="text-center mt-6" data-editorblocktype="SubmitButton">
-        <button type="submit" class="bg-brand hover:opacity-90 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all">Send message</button>
+        <button type="submit" id="submitButton" disabled class="bg-gray-400 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all cursor-not-allowed disabled:bg-gray-400 disabled:cursor-not-allowed enabled:bg-brand enabled:hover:opacity-90 enabled:cursor-pointer">Send message</button>
       </div>
 
       <div data-editorblocktype="Text">
@@ -179,7 +179,7 @@
         email: 'Enter a valid email address',
         emailPersonal: 'Work email is preferred',
         emailInvalid: 'Email address not valid',
-        emailValid: 'Accepted,
+        emailValid: 'Accepted',
         validating: 'Validating...'
       },
 
@@ -193,6 +193,39 @@
       // API endpoint for advanced email validation (MX records check)
       apiEndpoint: 'https://email-validation-neon.vercel.app/api/validate-email'
     };
+
+    // ============================================================
+    // FORM STATE MANAGEMENT
+    // ============================================================
+
+    // Track validation state of all required fields
+    const fieldValidationState = {
+      firstname: false,
+      lastname: false,
+      emailaddress1: false,
+      description: false
+    };
+
+    /**
+     * Update submit button state based on all field validations
+     */
+    function updateSubmitButtonState() {
+      const submitButton = document.getElementById('submitButton');
+      if (!submitButton) return;
+
+      // Check if all required fields are valid
+      const allValid = Object.values(fieldValidationState).every(valid => valid === true);
+
+      if (allValid) {
+        submitButton.disabled = false;
+        submitButton.classList.remove('bg-gray-400', 'cursor-not-allowed');
+        submitButton.classList.add('bg-brand', 'hover:opacity-90', 'cursor-pointer');
+      } else {
+        submitButton.disabled = true;
+        submitButton.classList.remove('bg-brand', 'hover:opacity-90', 'cursor-pointer');
+        submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
+      }
+    }
 
     // ============================================================
     // UTILITY FUNCTIONS
@@ -291,12 +324,16 @@
       // Empty check
       if (!email) {
         hideValidationMessage(emailInput);
+        fieldValidationState.emailaddress1 = false;
+        updateSubmitButtonState();
         return false;
       }
 
       // Format check
       if (!isValidEmailFormat(email)) {
         showValidationMessage(emailInput, VALIDATION_CONFIG.messages.email, 'error');
+        fieldValidationState.emailaddress1 = false;
+        updateSubmitButtonState();
         return false;
       }
 
@@ -306,6 +343,8 @@
       // Check for personal email
       if (isPersonalEmail(email)) {
         showValidationMessage(emailInput, VALIDATION_CONFIG.messages.emailPersonal, 'warning');
+        fieldValidationState.emailaddress1 = true;
+        updateSubmitButtonState();
         return true; // Still valid, just a warning
       }
 
@@ -313,11 +352,15 @@
       const hasMX = await checkMXRecords(email);
       if (!hasMX) {
         showValidationMessage(emailInput, VALIDATION_CONFIG.messages.emailInvalid, 'error');
+        fieldValidationState.emailaddress1 = false;
+        updateSubmitButtonState();
         return false;
       }
 
       // Valid email
       showValidationMessage(emailInput, VALIDATION_CONFIG.messages.emailValid, 'success');
+      fieldValidationState.emailaddress1 = true;
+      updateSubmitButtonState();
       return true;
     }
 
@@ -326,11 +369,21 @@
      */
     function validateRequiredField(field) {
       const value = field.value.trim();
+      const fieldName = field.name || field.id;
+      
       if (!value) {
         showValidationMessage(field, VALIDATION_CONFIG.messages.required, 'error');
+        if (fieldValidationState.hasOwnProperty(fieldName)) {
+          fieldValidationState[fieldName] = false;
+          updateSubmitButtonState();
+        }
         return false;
       }
       hideValidationMessage(field);
+      if (fieldValidationState.hasOwnProperty(fieldName)) {
+        fieldValidationState[fieldName] = true;
+        updateSubmitButtonState();
+      }
       return true;
     }
 
