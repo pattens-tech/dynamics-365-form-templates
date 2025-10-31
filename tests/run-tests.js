@@ -263,8 +263,8 @@ runner.test('Form initialization function exists', () => {
 runner.test('HTML5 default validation is disabled (novalidate)', () => {
   runner.assertIncludes(
     formHTML,
-    "form.setAttribute('novalidate'",
-    'Form does not disable HTML5 validation'
+    'novalidate',
+    'Form does not have novalidate attribute'
   );
 });
 

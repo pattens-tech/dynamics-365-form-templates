@@ -64,7 +64,7 @@
 </head>
 
    <body>
-  <form class="marketingForm">
+  <form class="marketingForm" novalidate>
     <div data-layout="true" data-layout-version="v2" class="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-2xl">
 
 
@@ -408,9 +408,6 @@
       if (emailField) {
         emailField.addEventListener('blur', () => validateEmailField(emailField));
       }
-
-      // Disable HTML5 default validation messages (we use custom ones)
-      form.setAttribute('novalidate', 'novalidate');
 
       console.log('Form validation initialized');
     }
