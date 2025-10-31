@@ -117,6 +117,27 @@ DEFAULT: /* @brand-color */ '#0078d4' /* @brand-color */
 
 Replace `#0078d4` with any hex color to instantly theme the entire form!
 
+**Customize Validation Messages:**
+
+Find the `VALIDATION_CONFIG` object in the template and modify the messages:
+
+```javascript
+const VALIDATION_CONFIG = {
+  messages: {
+    required: 'Please fill out this field',
+    email: 'Please enter a valid email address',
+    emailPersonal: 'Work email is preferred. Personal email detected.',
+    emailInvalid: 'This email address is not valid',
+    emailValid: 'Email address accepted',
+    validating: 'Validating email...'
+  },
+  // Add or remove personal email domains
+  personalDomains: [
+    'gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', ...
+  ]
+};
+```
+
 **Add Custom Fields:**
 ```html
 <div class="mb-4"
@@ -132,7 +153,9 @@ Replace `#0078d4` with any hex color to instantly theme the entire form!
          name="your_field_logical_name"
          placeholder="Enter value"
          required
+         title="Your custom validation message"
          class="w-full p-3 border border-gray-300 rounded-lg">
+  <span class="validation-message text-sm text-red-600 mt-1 hidden"></span>
 </div>
 ```
 
@@ -142,8 +165,10 @@ Replace `#0078d4` with any hex color to instantly theme the entire form!
 
 - **Tailwind CSS** - via CDN (latest version)
 - **Google Fonts** - Roboto font family
-- **Vanilla JavaScript** - Modal functionality
+- **Vanilla JavaScript** - All inline, no external dependencies
+- **HTML5 Form Validation** - Enhanced with custom JavaScript
 - **Dynamics 365 Marketing** - Form processing and CRM integration
+- **Node.js** - For automated testing (dev dependency only)
 
 ### Browser Support
 
@@ -158,6 +183,9 @@ Replace `#0078d4` with any hex color to instantly theme the entire form!
 ## Features
 
 - **🎨 One-Line Theme Switching** - Change the entire color scheme by editing a single value
+- **✅ Advanced Form Validation** - Client-side HTML5 validation with customizable error messages
+- **📧 Email Domain Validation** - Detects personal emails and validates MX records
+- **🎯 Customizable Validation Messages** - Easily modify all validation text in the configuration
 - **Modern Design** - Clean, professional styling with Tailwind CSS
 - **Fully Accessible** - WCAG 2.1 compliant with proper ARIA labels
 - **Mobile Responsive** - Works seamlessly on all device sizes
@@ -165,7 +193,47 @@ Replace `#0078d4` with any hex color to instantly theme the entire form!
 - **Fast Loading** - CDN-hosted assets for optimal performance
 - **Thank You Modal** - Built-in success confirmation UI
 - **Consent Management** - Newsletter opt-in with topic tracking
-- **Single File** - One template to maintain, zero code duplication
+- **Single File** - One template to maintain, all JavaScript inline
+- **🧪 Fully Tested** - Comprehensive automated test suite with 31+ tests
+
+---
+
+## Testing
+
+This project includes a comprehensive test suite to ensure all functionality works as expected.
+
+### Running Tests
+
+```bash
+# Install dependencies
+npm install
+
+# Run all tests (HTML validation + automated tests)
+npm test
+
+# Run only HTML validation
+npm run test:html
+
+# Run automated test suite
+npm run test:serve
+
+# Open browser-based interactive tests
+npm run test:browser
+```
+
+### Test Coverage
+
+The test suite includes 31+ automated tests covering:
+
+- ✅ HTML5 structure and validity
+- ✅ Dynamics 365 required attributes
+- ✅ Form field configuration
+- ✅ Validation functionality
+- ✅ Accessibility standards
+- ✅ JavaScript functions
+- ✅ Code quality
+
+For detailed testing documentation, see [tests/README.md](./tests/README.md).
 
 ---
 
@@ -177,6 +245,17 @@ Replace `#0078d4` with any hex color to instantly theme the entire form!
 - Verify `data-targetaudience` matches your target entity (contact or lead)
 - Check that `data-targetproperty` values match exact CRM field logical names
 - Ensure required Dynamics 365 meta tags are present in `<head>`
+- Check browser console for validation errors
+
+**Validation messages not showing:**
+- Ensure the validation message containers (`<span class="validation-message">`) are present
+- Check that the JavaScript `initFormValidation()` function is running
+- Open browser console and look for any JavaScript errors
+
+**Email validation not working:**
+- Verify the email validation API endpoint is accessible
+- Check network tab in browser dev tools for API call status
+- The validation will "fail open" if API is unavailable (won't block submission)
 
 **Styling doesn't appear:**
 - Confirm Tailwind CDN script is loaded in the `<head>` section
@@ -190,6 +269,11 @@ Replace `#0078d4` with any hex color to instantly theme the entire form!
 **Fields not mapping to CRM:**
 - Log into D365 and check the exact logical names of your fields
 - Update `data-targetproperty` attributes to match exactly (case-sensitive)
+
+**Tests failing:**
+- Run `npm install` to ensure all dependencies are installed
+- Verify you're running tests from the project root directory
+- Check that `templates/contact-form.html` exists and is readable
 
 For more detailed troubleshooting, see the [documentation](./documentation.md).
 

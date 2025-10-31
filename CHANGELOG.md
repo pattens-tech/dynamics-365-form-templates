@@ -16,6 +16,56 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Conditional field visibility
 - Integration with reCAPTCHA
 - Advanced theme customization (gradients, custom fonts)
+- Visual regression testing
+- E2E testing with Playwright
+- Performance testing
+
+## [1.3.0] - 2025-10-31
+
+### Changed - MAJOR REFACTORING
+- **Consolidated all JavaScript into a single inline script** - No more external JS files
+- Removed `templates/js/form-validation.js` - All validation code now inline in HTML
+- Removed `templates/contact-form-backup.html` - Unused backup file
+- Simplified folder structure - Single `contact-form.html` file with everything included
+
+### Added
+- **Comprehensive automated test suite** with 31+ tests
+  - Node.js test runner script (`tests/run-tests.js`)
+  - Browser-based interactive test page (`tests/test-contact-form.html`)
+  - Test documentation (`tests/README.md`)
+- **Enhanced client-side form validation**
+  - HTML5 native validation with custom messages
+  - Customizable validation message configuration
+  - Visual validation feedback (red/orange/green borders)
+  - Individual validation message containers for each field
+  - Custom `title` attributes for field-specific messages
+- **package.json** for dependency and test script management
+- npm test scripts for easy testing:
+  - `npm test` - Run all tests
+  - `npm run test:html` - HTML validation only
+  - `npm run test:serve` - Automated test suite
+  - `npm run test:browser` - Open browser tests
+
+### Improved
+- **Better code organization** - All code in one file for easier maintenance
+- **Enhanced documentation** - Clear comments and configuration sections
+- **Easier customization** - VALIDATION_CONFIG object for message customization
+- **Better accessibility** - Enhanced ARIA attributes and screen reader support
+- **Zero external dependencies** - All JavaScript inline, no separate files to manage
+- Form validation initialization now disables HTML5 default messages (`novalidate`)
+- Email validation with visual feedback during API calls
+
+### Fixed
+- Form validation now properly prevents submission on invalid fields
+- Email validation state tracking improved
+- Validation messages now show/hide smoothly with proper CSS transitions
+
+### Documentation
+- Updated README.md with testing instructions
+- Added comprehensive test documentation
+- Enhanced troubleshooting section
+- Added validation customization examples
+- Updated tech stack information
 
 ## [1.2.0] - 2025-10-23
 
@@ -101,6 +151,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version History Summary
 
+- **v1.3.0** - Major refactoring: consolidated JavaScript, enhanced validation, comprehensive test suite
+- **v1.2.0** - One-line theme switching, simplified architecture
 - **v1.1.0** - Enhanced documentation, color variants, GitHub Actions, bug fixes
 - **v1.0.0** - Initial release with contact form template
 
@@ -118,6 +170,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-[Unreleased]: https://github.com/pattens-tech/dynamics-365-forms/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/pattens-tech/dynamics-365-forms/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/pattens-tech/dynamics-365-forms/compare/v1.2.0...v1.3.0
+[1.2.0]: https://github.com/pattens-tech/dynamics-365-forms/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/pattens-tech/dynamics-365-forms/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/pattens-tech/dynamics-365-forms/releases/tag/v1.0.0

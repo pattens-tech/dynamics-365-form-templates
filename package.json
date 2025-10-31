@@ -1,0 +1,29 @@
+{
+  "name": "dynamics-365-form-templates",
+  "version": "1.3.0",
+  "description": "Beautiful, modern, accessible form templates for Dynamics 365 Customer Insights",
+  "main": "templates/contact-form.html",
+  "scripts": {
+    "test": "npm run test:html && npm run test:serve",
+    "test:html": "html-validate templates/*.html --config .htmlvalidate.json",
+    "test:serve": "node tests/run-tests.js",
+    "test:browser": "echo 'Opening browser test page...' && (command -v open > /dev/null && open tests/test-contact-form.html || (command -v xdg-open > /dev/null && xdg-open tests/test-contact-form.html || echo 'Please open tests/test-contact-form.html in your browser'))",
+    "validate": "html-validate templates/*.html --config .htmlvalidate.json"
+  },
+  "keywords": [
+    "dynamics-365",
+    "customer-insights",
+    "form-templates",
+    "tailwindcss",
+    "marketing-forms"
+  ],
+  "author": "Pattens Tech",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pattens-tech/Dynamics-365-Customer-Insights-Form-Templates.git"
+  },
+  "devDependencies": {
+    "html-validate": "^8.0.0"
+  }
+}
