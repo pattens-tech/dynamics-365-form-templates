@@ -79,33 +79,33 @@
 
       <!-- Form fields-->
       <div class="mb-4" data-editorblocktype="TextFormField" data-targetaudience="contact" data-targetproperty="firstname" data-prefill="false" data-required="required">
-        <label for="firstname" class="block text-gray-800 text-sm font-medium mb-2">First Name</label>
+        <label for="firstname" class="block text-gray-800 text-sm font-medium mb-2">First name</label>
         <input 
           id="firstname" 
           type="text" 
           name="firstname" 
-          placeholder="First Name" 
+          placeholder="" 
           maxlength="50" 
           required 
-          title="Please enter your first name"
+          title="Enter your first name"
           class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand">
         <span class="validation-message text-sm text-red-600 mt-1 hidden"></span>
       </div>
       <div class="mb-4" data-editorblocktype="TextFormField" data-targetaudience="contact" data-targetproperty="lastname" data-required="required" data-prefill="false">
-        <label for="lastname" class="block text-gray-800 text-sm font-medium mb-2">Last Name</label>
+        <label for="lastname" class="block text-gray-800 text-sm font-medium mb-2">Last name</label>
         <input 
           id="lastname" 
           type="text" 
           name="lastname" 
-          placeholder="Last Name" 
+          placeholder="" 
           maxlength="50" 
           required 
-          title="Please enter your last name"
+          title="Enter your last name"
           class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand">
         <span class="validation-message text-sm text-red-600 mt-1 hidden"></span>
       </div>
       <div class="mb-4" data-editorblocktype="TextFormField" data-targetaudience="contact" data-targetproperty="emailaddress1" data-prefill="false" data-required="required">
-        <label for="emailaddress1" class="block text-gray-800 text-sm font-medium mb-2">Email</label>
+        <label for="emailaddress1" class="block text-gray-800 text-sm font-medium mb-2">Work email</label>
         <input 
           id="emailaddress1" 
           type="email" 
@@ -113,7 +113,7 @@
           placeholder="your.email@example.com" 
           required 
           pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
-          title="Please enter a valid email address"
+          title="Enter a work email address"
           class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand">
         <span id="emailaddress1-message" class="validation-message text-sm mt-1 hidden"></span>
       </div>
@@ -122,10 +122,10 @@
         <textarea 
           id="description" 
           name="description" 
-          placeholder="Description" 
+          placeholder="Message" 
           maxlength="2000" 
           required 
-          title="Please enter a description"
+          title="Enter a message"
           class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand h-32"></textarea>
         <span class="validation-message text-sm text-red-600 mt-1 hidden"></span>
       </div>
