@@ -102,10 +102,31 @@
       <div data-editorblocktype="Text" class="mb-2">
         <p class="text-gray-600 text-left mb-2">We will send you news, webinars, marketing emails. You can opt out at any time.</p>
       </div>
+
+
       <div class="flex items-start mb-4" data-editorblocktype="Topic" data-required="false">
         <input type="checkbox" id="consentTopicCheckbox" name="msdynmkt_topicid;channels;optinwhenchecked" value="b5cfd151-c1ac-f011-bbd3-7c1e522e1eab;Email;true" class="h-4 w-4 text-brand border-gray-300 rounded focus:ring-brand">
         <label for="consentTopicCheckbox" class="ml-2 text-sm text-gray-700">Send me the newsletter</label>
       </div>
+
+
+<fieldset>
+  <legend class="sr-only">Checkbox variants</legend>
+
+
+  <div class="flex mb-4">
+      <div class="flex items-center h-5">
+          <input id="helper-checkbox" aria-describedby="helper-checkbox-text" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+      </div>
+      <div class="ms-2 text-sm">
+          <label for="helper-checkbox" class="font-medium text-gray-900 dark:text-gray-300">Subscribe to the newsletter</label>
+          <p id="helper-checkbox-text" class="text-xs font-normal text-gray-500 dark:text-gray-400">We'll only use your email for this purpose</p>
+      </div>
+  </div>
+
+
+</fieldset>
+
 
       <div class="text-center mt-6" data-editorblocktype="SubmitButton">
         <button type="submit" class="bg-brand hover:opacity-90 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all">Send message</button>
