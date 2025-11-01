@@ -105,12 +105,12 @@
         <span class="validation-message text-sm text-red-600 mt-1 hidden"></span>
       </div>
       <div class="mb-4" data-editorblocktype="TextFormField" data-targetaudience="contact" data-targetproperty="emailaddress1" data-prefill="false" data-required="required">
-        <label for="emailaddress1" class="block text-gray-800 text-sm font-medium mb-2">Work email</label>
+        <label for="emailaddress1" class="block text-gray-800 text-sm font-medium mb-2">Email</label>
         <input 
           id="emailaddress1" 
           type="email" 
           name="emailaddress1" 
-          placeholder="your.email@example.com" 
+          placeholder="Enter your work email address" 
           required 
           pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
           title="Enter a work email address"
@@ -122,7 +122,7 @@
         <textarea 
           id="description" 
           name="description" 
-          placeholder="Message" 
+          placeholder="" 
           maxlength="2000" 
           required 
           title="Enter a message"
@@ -135,29 +135,26 @@
         <h2 class="text-xl font-semibold text-gray-800 mb-2 text-left">Newsletter</h2>
       </div>
       <div data-editorblocktype="Text" class="mb-2">
-        <p class="text-gray-600 text-left mb-2">We will send you news, webinars, marketing emails. You can opt out at any time.</p>
+        <p class="text-gray-600 text-left mb-2">We will send you occasional news, webinars ivites & more.
+          You can opt out at any time.</p>
       </div>
+      <label class="inline-flex items-center mb-5 cursor-pointer">
+  
+  <input type="checkbox" value="" class="sr-only peer">
+  <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:w-5 after:h-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
+  <span class="ms-3 text-sm font-medium text-gray-600 dark:text-gray-300">Subscribe</span>
+  
+</label>
 
 
-      <div class="flex items-start mb-4" data-editorblocktype="Topic" data-required="false">
-        <input type="checkbox" id="consentTopicCheckbox" name="msdynmkt_topicid;channels;optinwhenchecked" value="b5cfd151-c1ac-f011-bbd3-7c1e522e1eab;Email;true" class="h-4 w-4 text-brand border-gray-300 rounded focus:ring-brand">
-        <label for="consentTopicCheckbox" class="ml-2 text-sm text-gray-700">Send me the newsletter</label>
-      </div>
 
 
-<fieldset>
-  <legend class="sr-only">Checkbox variants</legend>
 
 
-  <div class="flex mb-4">
-      <div class="flex items-center h-5">
-          <input id="helper-checkbox" aria-describedby="helper-checkbox-text" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-      </div>
-      <div class="ms-2 text-sm">
-          <label for="helper-checkbox" class="font-medium text-gray-900 dark:text-gray-300">Subscribe to the newsletter</label>
-          <p id="helper-checkbox-text" class="text-xs font-normal text-gray-500 dark:text-gray-400">We'll only use your email for this purpose</p>
-      </div>
-  </div>
+
+
+
+
 
 
 </fieldset>
