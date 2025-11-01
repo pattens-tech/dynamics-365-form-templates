@@ -41,6 +41,8 @@ This repository includes **two versions** of the contact form template:
 - Modern CSS features: Grid, Flexbox, CSS Variables
 - Fully self-contained styling
 
+**📊 Need help choosing?** See the [Template Comparison Guide](./TEMPLATE_COMPARISON.md) for detailed differences and recommendations.
+
 ## 🎨 Easy Theme Customization
 
 **One template, infinite possibilities!** Simply change a single color value to switch themes.
