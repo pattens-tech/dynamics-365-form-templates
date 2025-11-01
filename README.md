@@ -5,7 +5,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/pattens-tech/dynamics-365-forms?style=social)](https://github.com/pattens-tech/dynamics-365-forms/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/pattens-tech/dynamics-365-forms?style=social)](https://github.com/pattens-tech/dynamics-365-forms/network/members)
 
-Beautiful, modern, accessible, and customizable form templates for Dynamics 365 Customer Insights - built with Tailwind CSS.
+Beautiful, modern, accessible, and customizable form templates for Dynamics 365 Customer Insights - available in both Tailwind CSS and pure CSS3 versions.
 
 ![image](https://repository-images.githubusercontent.com/1082111680/671a8db4-7243-45e4-9a30-f3332bd3a4d0)
 
@@ -25,8 +25,25 @@ Dynamics 365 has multiple form types: standard forms (such as contact forms), ev
   - **Usage:** Contact forms, newsletter subscriptions, general inquiries
   - **Features:** Standard form fields, validation, submission handling, consent management
 
-### Form Template Preview
-[View Live Demo](https://pattens-tech.github.io/Dynamics-365-Customer-Insights-Form-Templates/templates/contact-form.html)
+### Form Template Versions
+
+This repository includes **two versions** of the contact form template:
+
+#### 1. **Tailwind CSS Version** (`contact-form.html`)
+- Uses Tailwind CSS via CDN for rapid styling
+- Minimal custom CSS required
+- [View Live Demo](https://pattens-tech.github.io/Dynamics-365-Customer-Insights-Form-Templates/templates/contact-form.html)
+
+#### 2. **Pure CSS3 Version** (`contact-form-css3.html`)
+- Built with pure CSS3 and HTML5 standards
+- No external CSS frameworks required
+- Uses CSS custom properties (variables) for theming
+- Modern CSS features: Grid, Flexbox, CSS Variables
+- Fully self-contained styling (all CSS inline)
+
+**📊 Need help choosing?** See the [Template Comparison Guide](./TEMPLATE_COMPARISON.md) for detailed differences and recommendations.
+
+**Note:** Both versions use Google Fonts and an optional email validation API. The validation API fails gracefully if unavailable.
 
 ## 🎨 Easy Theme Customization
 
@@ -44,9 +61,16 @@ Dynamics 365 has multiple form types: standard forms (such as contact forms), ev
 
 ### How to Change Theme
 
+**For Tailwind CSS Version:**
 1. Open `templates/contact-form.html`
 2. Find line 53 (the Tailwind configuration)
 3. Replace `#0078d4` with your chosen color code
+4. Save and you're done!
+
+**For Pure CSS3 Version:**
+1. Open `templates/contact-form-css3.html`
+2. Find the `:root` CSS variables section (around line 44)
+3. Replace `--brand-color: #0078d4;` with your chosen color code
 4. Save and you're done!
 
 **Example:**
@@ -76,25 +100,29 @@ Before using these templates, ensure you have:
 
 ## Quick Start
 
-1. **Copy the HTML template**
-   - Navigate to `templates/contact-form.html` in this repository
+1. **Choose your template version**
+   - **Tailwind CSS Version**: `templates/contact-form.html` (uses Tailwind CSS CDN)
+   - **Pure CSS3 Version**: `templates/contact-form-css3.html` (no external frameworks)
+
+2. **Copy the HTML template**
+   - Navigate to your chosen template file in this repository
    - Copy the entire HTML content
 
-2. **Access Dynamics 365 Marketing Forms**
+3. **Access Dynamics 365 Marketing Forms**
    - Log into Dynamics 365 Customer Insights
    - Navigate to **Channels* > **Forms**
    - Click **New** to create a new form
 
-3. **Switch to HTML Editor**
+4. **Switch to HTML Editor**
    - In the form editor, switch to **HTML/Code view**
    - Paste the template code
 
-4. **Customize for your CRM**
+5. **Customize for your CRM**
    - Update `data-targetaudience` attributes (contact or lead)
    - Verify `data-targetproperty` values match your CRM field logical names
    - Modify styling and text content as needed
 
-5. **Test and Publish**
+6. **Test and Publish**
    - Save the form
    - Test submission
    - Publish when ready
@@ -163,11 +191,22 @@ const VALIDATION_CONFIG = {
 
 ## Tech Stack
 
+### Tailwind CSS Version
 - **Tailwind CSS** - via CDN (latest version)
 - **Google Fonts** - Roboto font family
 - **Vanilla JavaScript** - All inline, no external dependencies
 - **HTML5 Form Validation** - Enhanced with custom JavaScript
 - **Dynamics 365 Marketing** - Form processing and CRM integration
+
+### Pure CSS3 Version
+- **Pure CSS3** - Modern CSS features (Grid, Flexbox, Custom Properties)
+- **CSS Variables** - For easy theme customization
+- **Google Fonts** - Roboto font family
+- **Vanilla JavaScript** - All inline, no external dependencies
+- **HTML5 Form Validation** - Enhanced with custom JavaScript
+- **Dynamics 365 Marketing** - Form processing and CRM integration
+
+### Development
 - **Node.js** - For automated testing (dev dependency only)
 
 ### Browser Support
@@ -183,14 +222,15 @@ const VALIDATION_CONFIG = {
 ## Features
 
 - **🎨 One-Line Theme Switching** - Change the entire color scheme by editing a single value
+- **📦 Two Template Versions** - Choose between Tailwind CSS or Pure CSS3
 - **✅ Advanced Form Validation** - Client-side HTML5 validation with customizable error messages
 - **📧 Email Domain Validation** - Detects personal emails and validates MX records
 - **🎯 Customizable Validation Messages** - Easily modify all validation text in the configuration
-- **Modern Design** - Clean, professional styling with Tailwind CSS
+- **Modern Design** - Clean, professional styling (Tailwind CSS or Pure CSS3)
 - **Fully Accessible** - WCAG 2.1 compliant with proper ARIA labels
 - **Mobile Responsive** - Works seamlessly on all device sizes
 - **Easy Customization** - Change colors, add fields, modify styling with ease
-- **Fast Loading** - CDN-hosted assets for optimal performance
+- **Fast Loading** - CDN-hosted or self-contained styling options
 - **Thank You Modal** - Built-in success confirmation UI
 - **Consent Management** - Newsletter opt-in with topic tracking
 - **Single File** - One template to maintain, all JavaScript inline

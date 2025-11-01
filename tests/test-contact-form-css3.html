@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form CSS3 Tests</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    .test-container {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .test-results {
+      margin-top: 20px;
+    }
+    .test-item {
+      padding: 10px;
+      margin: 5px 0;
+      border-left: 4px solid #ccc;
+      background: #f9f9f9;
+    }
+    .test-item.pass {
+      border-color: #4caf50;
+      background: #f1f8f4;
+    }
+    .test-item.fail {
+      border-color: #f44336;
+      background: #fef5f5;
+    }
+    .test-item.running {
+      border-color: #ff9800;
+      background: #fff8f0;
+    }
+    .summary {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 20px 0;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .summary.pass {
+      background: #4caf50;
+      color: white;
+    }
+    .summary.fail {
+      background: #f44336;
+      color: white;
+    }
+    button {
+      background: #0078d4;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 10px 5px 10px 0;
+    }
+    button:hover {
+      background: #005a9e;
+    }
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧪 Contact Form CSS3 Test Suite</h1>
+  <p>Automated testing for the Dynamics 365 contact form CSS3 template</p>
+
+  <div class="test-container">
+    <h2>Test Controls</h2>
+    <button onclick="runAllTests()">▶️ Run All Tests</button>
+    <button onclick="runHTMLValidation()">✓ HTML Validation Only</button>
+    <button onclick="clearResults()">🗑️ Clear Results</button>
+  </div>
+
+  <div class="test-container">
+    <h2>Test Results</h2>
+    <div id="summary" class="summary" style="display: none;"></div>
+    <div id="results" class="test-results"></div>
+  </div>
+
+  <div class="test-container">
+    <h2>Form Preview</h2>
+    <iframe id="formPreview" src="../templates/contact-form-css3.html"></iframe>
+  </div>
+
+  <script>
+    let testResults = [];
+
+    function addTest(name, passed, message = '') {
+      testResults.push({ name, passed, message });
+      updateResults();
+    }
+
+    function updateResults() {
+      const resultsDiv = document.getElementById('results');
+      const summaryDiv = document.getElementById('summary');
+      
+      resultsDiv.innerHTML = testResults.map(test => `
+        <div class="test-item ${test.passed ? 'pass' : 'fail'}">
+          <strong>${test.passed ? '✓' : '✗'} ${test.name}</strong>
+          ${test.message ? `<br><small>${test.message}</small>` : ''}
+        </div>
+      `).join('');
+
+      const passed = testResults.filter(t => t.passed).length;
+      const total = testResults.length;
+      const allPassed = passed === total;
+
+      summaryDiv.style.display = 'block';
+      summaryDiv.className = `summary ${allPassed ? 'pass' : 'fail'}`;
+      summaryDiv.textContent = `${passed}/${total} tests passed`;
+    }
+
+    function clearResults() {
+      testResults = [];
+      document.getElementById('results').innerHTML = '';
+      document.getElementById('summary').style.display = 'none';
+    }
+
+    async function runHTMLValidation() {
+      clearResults();
+      addTest('Loading form template', true, 'Checking if form loads correctly');
+      
+      try {
+        const response = await fetch('../templates/contact-form-css3.html');
+        const html = await response.text();
+        
+        addTest('HTML file loads', response.ok, `Status: ${response.status}`);
+        addTest('HTML content exists', html.length > 0, `Size: ${html.length} bytes`);
+        
+        // Basic HTML5 structure checks
+        addTest('Has DOCTYPE', html.includes('<!DOCTYPE html>'));
+        addTest('Has html tag', html.includes('<html'));
+        addTest('Has head section', html.includes('<head>'));
+        addTest('Has body section', html.includes('<body>'));
+        addTest('Has charset meta', html.includes('charset="UTF-8"'));
+        addTest('Has viewport meta', html.includes('name="viewport"'));
+        
+        // Dynamics 365 specific checks
+        addTest('Has D365 designer meta', html.includes('type="xrm/designer/setting"'));
+        addTest('Has marketing form class', html.includes('class="marketingForm"'));
+        
+        // CSS3 specific checks
+        addTest('Uses CSS3 (no Tailwind CDN)', !html.includes('cdn.tailwindcss.com'));
+        addTest('Has style tag', html.includes('<style>'));
+        addTest('Uses CSS variables', html.includes('--brand-color'));
+        addTest('Has custom CSS', html.includes(':root'));
+        
+        // Form fields
+        addTest('Has firstname field', html.includes('id="firstname"'));
+        addTest('Has lastname field', html.includes('id="lastname"'));
+        addTest('Has email field', html.includes('id="emailaddress1"'));
+        addTest('Has message field', html.includes('id="description"'));
+        addTest('Has submit button', html.includes('id="submitButton"'));
+        
+        // Data attributes
+        addTest('Has targetaudience attributes', html.includes('data-targetaudience'));
+        addTest('Has targetproperty attributes', html.includes('data-targetproperty'));
+        addTest('Has editorblocktype attributes', html.includes('data-editorblocktype'));
+        
+        // JavaScript validation
+        addTest('Has validation script', html.includes('VALIDATION_CONFIG'));
+        addTest('Has form validation function', html.includes('function validateRequiredField'));
+        addTest('Has email validation function', html.includes('function validateEmailField'));
+        addTest('Has submit handler', html.includes('function handleFormSubmit'));
+        
+        // Accessibility
+        addTest('Has label tags', html.includes('<label'));
+        addTest('Has required attributes', html.includes('required'));
+        addTest('Has title attributes for inputs', html.includes('title='));
+        
+        // Modal
+        addTest('Has thank you modal', html.includes('id="thankYouModal"'));
+        addTest('Has modal close function', html.includes('function closeThankYouModal'));
+        
+      } catch (error) {
+        addTest('Test execution', false, `Error: ${error.message}`);
+      }
+    }
+
+    async function runAllTests() {
+      await runHTMLValidation();
+    }
+
+    // Auto-run tests on page load
+    window.addEventListener('load', () => {
+      setTimeout(runAllTests, 500);
+    });
+  </script>
+</body>
+</html>

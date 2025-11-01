@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required: Dynamics 365 -->
+    <meta type="xrm/designer/setting" name="type" value="marketing-designer-content-editor-document">
+    <meta type="xrm/designer/setting" name="layout-editable" value="marketing-designer-layout-editable">
+    <meta type="xrm/designer/setting" name="additional-fonts" datatype="font" value="<Inter>">
+
+    <!-- Required: HTML document setup -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Form - CSS3</title>
+    <meta name="referrer" content="never">
+
+    <!-- Google Fonts: Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
+
+    <!--
+    ============================================================
+    THEME CONFIGURATION - CHANGE YOUR COLORS HERE!
+    ============================================================
+
+    Simply change the CSS variable below to switch themes.
+
+    Available Pre-defined Themes:
+
+    • Blue (Default)    #0078d4    Professional and trustworthy
+    • Corporate         #1e293b    Sleek slate gray
+    • Vibrant           #9333ea    Bold purple
+    • Minimal           #000000    Classic black and white
+    • Custom            #??????    Use your own brand color!
+
+    Instructions:
+    1. Replace the --brand-color value below with your chosen theme
+    2. Save the file
+    3. That's it! The entire form will update automatically.
+
+    ============================================================
+    -->
+
+    <style>
+        /* CSS Custom Properties for Theme Customization */
+        :root {
+            --brand-color: #0078d4;
+            --brand-hover: #005a9e;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --border-color: #d1d5db;
+            --border-focus: var(--brand-color);
+            --bg-white: #ffffff;
+            --bg-gray: #f9fafb;
+            --success-color: #10b981;
+            --success-bg: #d1fae5;
+            --warning-color: #f59e0b;
+            --warning-bg: #fef3c7;
+            --error-color: #ef4444;
+            --error-bg: #fee2e2;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --radius-sm: 0.25rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 1rem;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--text-primary);
+            background-color: var(--bg-gray);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Form Container */
+        .form-container {
+            max-width: 32rem;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow-lg);
+            border-radius: 1rem;
+        }
+
+        @media (max-width: 640px) {
+            .form-container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-xs {
+            font-size: 0.75rem;
+            line-height: 1rem;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+        }
+
+        /* Form Fields */
+        .form-field {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            color: var(--text-primary);
+            background-color: var(--bg-white);
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.1);
+        }
+
+        input[type="text"]::placeholder,
+        input[type="email"]::placeholder,
+        textarea::placeholder {
+            color: var(--text-light);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 8rem;
+        }
+
+        /* Validation Messages */
+        .validation-message {
+            display: block;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .validation-message.hidden {
+            display: none;
+        }
+
+        .validation-message.error {
+            color: var(--error-color);
+        }
+
+        .validation-message.warning {
+            color: var(--warning-color);
+        }
+
+        .validation-message.success {
+            color: var(--success-color);
+        }
+
+        /* Validation States */
+        input.error,
+        textarea.error {
+            border-color: var(--error-color);
+        }
+
+        input.warning,
+        textarea.warning {
+            border-color: var(--warning-color);
+        }
+
+        input.success,
+        textarea.success {
+            border-color: var(--success-color);
+        }
+
+        /* Horizontal Rule */
+        hr {
+            border: 0;
+            border-top: 1px solid #e5e7eb;
+            margin: 1.5rem 0;
+        }
+
+        /* Toggle Switch */
+        .toggle-container {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            cursor: pointer;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 2.75rem;
+            height: 1.5rem;
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            transition: background-color 0.2s;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 0.125rem;
+            left: 0.125rem;
+            width: 1.25rem;
+            height: 1.25rem;
+            background-color: var(--bg-white);
+            border-radius: 50%;
+            border: 1px solid #d1d5db;
+            transition: transform 0.2s;
+        }
+
+        input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        input[type="checkbox"]:checked + .toggle-switch {
+            background-color: #2563eb;
+        }
+
+        input[type="checkbox"]:checked + .toggle-switch::after {
+            transform: translateX(1.25rem);
+        }
+
+        input[type="checkbox"]:focus + .toggle-switch {
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+            outline: none;
+        }
+
+        .toggle-label {
+            margin-left: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        /* Buttons */
+        button[type="submit"] {
+            display: inline-block;
+            width: auto;
+            padding: 0.75rem 1.5rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            color: var(--bg-white);
+            background-color: var(--brand-color);
+            border: none;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            transition: background-color 0.15s ease-in-out, opacity 0.15s ease-in-out;
+        }
+
+        button[type="submit"]:hover:not(:disabled) {
+            background-color: var(--brand-hover);
+            opacity: 0.9;
+        }
+
+        button[type="submit"]:disabled {
+            background-color: #9ca3af;
+            cursor: not-allowed;
+            opacity: 1;
+        }
+
+        button[type="button"] {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--bg-white);
+            background-color: var(--brand-color);
+            border: none;
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: opacity 0.15s ease-in-out;
+        }
+
+        button[type="button"]:hover {
+            opacity: 0.9;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal.hidden {
+            display: none;
+        }
+
+        .modal-content {
+            background-color: var(--bg-white);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-xl);
+            text-align: center;
+            max-width: 24rem;
+            margin: 1rem;
+        }
+
+        .modal-icon {
+            width: 4rem;
+            height: 4rem;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: var(--success-bg);
+            color: var(--success-color);
+            font-size: 2rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-text {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Utility Classes */
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        .mt-6 {
+            margin-top: 1.5rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Screen Reader Only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="marketingForm" novalidate>
+        <div data-layout="true" data-layout-version="v2" class="form-container">
+
+            <!-- Form intro -->
+            <div data-editorblocktype="Text" class="mb-2">
+                <h1>Contact us</h1>
+            </div>
+            <div data-editorblocktype="Text" class="mb-6">
+                <p class="text-center">We'd love to hear from you</p>
+            </div>
+
+            <!-- Form fields-->
+            <div class="form-field" data-editorblocktype="TextFormField" data-targetaudience="contact" data-targetproperty="firstname" data-prefill="false" data-required="required">
+                <label for="firstname">First name</label>
+                <input 
+                    id="firstname" 
+                    type="text" 
+                    name="firstname" 
+                    placeholder="" 
+                    maxlength="50" 
+                    required 
+                    title="Enter your first name">
+                <span class="validation-message hidden"></span>
+            </div>
+
+            <div class="form-field" data-editorblocktype="TextFormField" data-targetaudience="contact" data-targetproperty="lastname" data-required="required" data-prefill="false">
+                <label for="lastname">Last name</label>
+                <input 
+                    id="lastname" 
+                    type="text" 
+                    name="lastname" 
+                    placeholder="" 
+                    maxlength="50" 
+                    required 
+                    title="Enter your last name">
+                <span class="validation-message hidden"></span>
+            </div>
+
+            <div class="form-field" data-editorblocktype="TextFormField" data-targetaudience="contact" data-targetproperty="emailaddress1" data-prefill="false" data-required="required">
+                <label for="emailaddress1">Email</label>
+                <input 
+                    id="emailaddress1" 
+                    type="email" 
+                    name="emailaddress1" 
+                    placeholder="Enter your work email address" 
+                    required 
+                    pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                    title="Enter a work email address">
+                <span id="emailaddress1-message" class="validation-message hidden"></span>
+            </div>
+
+            <div class="form-field" data-editorblocktype="TextAreaFormField" data-targetaudience="contact" data-targetproperty="description" data-prefill="false" data-required="required">
+                <label for="description">Message</label>
+                <textarea 
+                    id="description" 
+                    name="description" 
+                    placeholder="" 
+                    maxlength="2000" 
+                    required 
+                    title="Enter a message"></textarea>
+                <span class="validation-message hidden"></span>
+            </div>
+
+            <hr>
+
+            <div data-editorblocktype="Text" class="mb-2">
+                <h2>Newsletter</h2>
+            </div>
+            <div data-editorblocktype="Text" class="mb-2">
+                <p class="text-left">We will send you occasional news, webinars invites and more. You can opt out at any time.</p>
+            </div>
+
+            <label class="toggle-container">
+                <input type="checkbox" value="">
+                <div class="toggle-switch"></div>
+                <span class="toggle-label">Subscribe</span>
+            </label>
+
+            <div class="text-center mt-6" data-editorblocktype="SubmitButton">
+                <button type="submit" id="submitButton" disabled>Send message</button>
+            </div>
+
+            <div data-editorblocktype="Text">
+                <p class="text-xs text-center mt-4" style="color: var(--text-light);">By selecting Send message, I agree to the Terms of Service and acknowledge the Privacy policy.</p>
+            </div>
+        </div>
+
+        <!-- Thank You Modal -->
+        <div id="thankYouModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-icon">✓</div>
+                <h2 class="modal-title">Thank you!</h2>
+                <p class="modal-text">We've received your message and will get back to you soon.</p>
+                <button type="button" onclick="closeThankYouModal()">Close</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        /**
+         * Form Validation and Submission Handler
+         * Provides client-side validation with customizable error messages
+         * and email domain validation for Dynamics 365 Marketing Forms
+         */
+
+        // ============================================================
+        // CONFIGURATION - Customize validation messages here
+        // ============================================================
+        const VALIDATION_CONFIG = {
+            // Custom validation messages (customize these as needed)
+            messages: {
+                required: 'Field required',
+                email: 'Enter a valid email address',
+                emailPersonal: 'Work email is preferred',
+                emailInvalid: 'Email address not valid',
+                emailValid: 'Accepted',
+                validating: 'Validating...'
+            },
+
+            // Personal email domains that trigger warnings
+            personalDomains: [
+                'gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'icloud.com',
+                'aol.com', 'live.com', 'msn.com', 'protonmail.com', 'zoho.com',
+                'mail.com', 'yandex.com', 'me.com', 'mac.com', 'fastmail.com'
+            ],
+
+            // API endpoint for advanced email validation (MX records check)
+            apiEndpoint: 'https://email-validation-neon.vercel.app/api/validate-email'
+        };
+
+        // ============================================================
+        // FORM STATE MANAGEMENT
+        // ============================================================
+
+        // Track validation state of all required fields
+        const fieldValidationState = {
+            firstname: false,
+            lastname: false,
+            emailaddress1: false,
+            description: false
+        };
+
+        /**
+         * Update submit button state based on all field validations
+         */
+        function updateSubmitButtonState() {
+            const submitButton = document.getElementById('submitButton');
+            if (!submitButton) return;
+
+            // Check if all required fields are valid
+            const allValid = Object.values(fieldValidationState).every(valid => valid === true);
+            submitButton.disabled = !allValid;
+        }
+
+        // ============================================================
+        // UTILITY FUNCTIONS
+        // ============================================================
+
+        /**
+         * Validate email format using regex
+         */
+        function isValidEmailFormat(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        /**
+         * Extract domain from email address
+         */
+        function extractDomain(email) {
+            const parts = email.split('@');
+            return parts.length === 2 ? parts[1].toLowerCase() : '';
+        }
+
+        /**
+         * Check if email domain is a personal email provider
+         */
+        function isPersonalEmail(email) {
+            const domain = extractDomain(email);
+            return VALIDATION_CONFIG.personalDomains.includes(domain);
+        }
+
+        /**
+         * Check if email domain has MX records via API
+         */
+        async function checkMXRecords(email) {
+            try {
+                const response = await fetch(
+                    `${VALIDATION_CONFIG.apiEndpoint}?email=${encodeURIComponent(email)}`
+                );
+                const data = await response.json();
+                return data.hasMXRecords;
+            } catch (error) {
+                console.error('MX validation failed:', error);
+                return true; // Fail open - don't block on API errors
+            }
+        }
+
+        // ============================================================
+        // VALIDATION UI FUNCTIONS
+        // ============================================================
+
+        /**
+         * Show validation message for a field
+         */
+        function showValidationMessage(field, message, type = 'error') {
+            const messageElement = field.parentNode.querySelector('.validation-message');
+            if (messageElement) {
+                messageElement.textContent = message;
+                messageElement.classList.remove('hidden', 'error', 'warning', 'success');
+                field.classList.remove('error', 'warning', 'success');
+                
+                // Set color based on type
+                messageElement.classList.add(type);
+                field.classList.add(type);
+            }
+        }
+
+        /**
+         * Hide validation message for a field
+         */
+        function hideValidationMessage(field) {
+            const messageElement = field.parentNode.querySelector('.validation-message');
+            if (messageElement) {
+                messageElement.classList.add('hidden');
+                field.classList.remove('error', 'warning', 'success');
+            }
+        }
+
+        /**
+         * Validate email field with enhanced checks
+         */
+        async function validateEmailField(emailInput) {
+            const email = emailInput.value.trim();
+            
+            // Empty check
+            if (!email) {
+                hideValidationMessage(emailInput);
+                fieldValidationState.emailaddress1 = false;
+                updateSubmitButtonState();
+                return false;
+            }
+
+            // Format check
+            if (!isValidEmailFormat(email)) {
+                showValidationMessage(emailInput, VALIDATION_CONFIG.messages.email, 'error');
+                fieldValidationState.emailaddress1 = false;
+                updateSubmitButtonState();
+                return false;
+            }
+
+            // Show validating state
+            showValidationMessage(emailInput, VALIDATION_CONFIG.messages.validating, 'warning');
+
+            // Check for personal email
+            if (isPersonalEmail(email)) {
+                showValidationMessage(emailInput, VALIDATION_CONFIG.messages.emailPersonal, 'warning');
+                fieldValidationState.emailaddress1 = true;
+                updateSubmitButtonState();
+                return true; // Still valid, just a warning
+            }
+
+            // Check MX records for work emails
+            const hasMX = await checkMXRecords(email);
+            if (!hasMX) {
+                showValidationMessage(emailInput, VALIDATION_CONFIG.messages.emailInvalid, 'error');
+                fieldValidationState.emailaddress1 = false;
+                updateSubmitButtonState();
+                return false;
+            }
+
+            // Valid email
+            showValidationMessage(emailInput, VALIDATION_CONFIG.messages.emailValid, 'success');
+            fieldValidationState.emailaddress1 = true;
+            updateSubmitButtonState();
+            return true;
+        }
+
+        /**
+         * Validate required field
+         */
+        function validateRequiredField(field) {
+            const value = field.value.trim();
+            const fieldName = field.name || field.id;
+            
+            if (!value) {
+                showValidationMessage(field, VALIDATION_CONFIG.messages.required, 'error');
+                if (fieldName in fieldValidationState) {
+                    fieldValidationState[fieldName] = false;
+                    updateSubmitButtonState();
+                }
+                return false;
+            }
+            hideValidationMessage(field);
+            if (fieldName in fieldValidationState) {
+                fieldValidationState[fieldName] = true;
+                updateSubmitButtonState();
+            }
+            return true;
+        }
+
+        // ============================================================
+        // FORM SUBMISSION AND MODAL
+        // ============================================================
+
+        /**
+         * Close the thank you modal
+         */
+        function closeThankYouModal() {
+            document.getElementById('thankYouModal').classList.add('hidden');
+        }
+
+        /**
+         * Handle form submission
+         */
+        async function handleFormSubmit(event) {
+            let isValid = true;
+
+            // Validate all required fields
+            const requiredFields = document.querySelectorAll('input[required], textarea[required]');
+            for (const field of requiredFields) {
+                if (field.type === 'email') {
+                    const emailValid = await validateEmailField(field);
+                    if (!emailValid) {
+                        isValid = false;
+                        field.focus();
+                    }
+                } else {
+                    const fieldValid = validateRequiredField(field);
+                    if (!fieldValid && isValid) {
+                        isValid = false;
+                        field.focus();
+                    }
+                }
+            }
+
+            // Prevent form submission if validation fails
+            if (!isValid) {
+                event.preventDefault();
+                return false;
+            }
+
+            return true;
+        }
+
+        // ============================================================
+        // EVENT LISTENERS AND INITIALIZATION
+        // ============================================================
+
+        /**
+         * Initialize form validation
+         */
+        function initFormValidation() {
+            const form = document.querySelector('.marketingForm');
+            if (!form) return;
+
+            // Add submit event listener
+            form.addEventListener('submit', handleFormSubmit);
+
+            // Add blur validation for required text inputs and textareas
+            const textFields = form.querySelectorAll('input[type="text"][required], textarea[required]');
+            textFields.forEach(field => {
+                field.addEventListener('blur', () => validateRequiredField(field));
+                field.addEventListener('input', () => {
+                    if (field.value.trim()) {
+                        hideValidationMessage(field);
+                    }
+                });
+            });
+
+            // Add email validation on blur
+            const emailField = form.querySelector('#emailaddress1');
+            if (emailField) {
+                emailField.addEventListener('blur', () => validateEmailField(emailField));
+            }
+
+            console.log('Form validation initialized');
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initFormValidation);
+        } else {
+            initFormValidation();
+        }
+    </script>
+</body>
+</html>
