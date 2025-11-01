@@ -9,7 +9,7 @@ This document helps you choose between the two available form template versions.
 | **File Name** | `contact-form.html` | `contact-form-css3.html` |
 | **CSS Framework** | Tailwind CSS (CDN) | Pure CSS3 |
 | **External Dependencies** | Yes (Tailwind CDN) | No |
-| **File Size** | ~19 KB | ~27 KB |
+| **File Size** | ~19 KB HTML + ~50KB Tailwind (CDN) | ~27 KB (self-contained) |
 | **Styling Approach** | Utility classes | Custom CSS |
 | **Theme Customization** | One line (Tailwind config) | One line (CSS variable) |
 | **Browser Support** | Modern browsers | Modern browsers |
@@ -39,11 +39,13 @@ This document helps you choose between the two available form template versions.
 ✅ **Best for:**
 - Environments with restricted internet access
 - Corporate intranets behind firewalls
-- Fully self-contained deployments
+- Fully self-contained deployments (no CSS framework dependency)
 - Teams preferring traditional CSS
-- When you want zero external dependencies
-- Compliance requirements for no external resources
-- Offline or air-gapped systems
+- When you want no external CSS framework dependencies
+- Smaller total download size (no separate CSS framework)
+- Projects where you prefer inline styles
+
+**Note:** Both versions use an external email validation API service. For truly offline deployments, this API call will fail gracefully and allow form submission.
 
 ❌ **Avoid if:**
 - File size is critical (slightly larger)
@@ -105,9 +107,16 @@ tailwind.config = {
 Both versions use **identical JavaScript validation logic**:
 - ✅ Same validation functions
 - ✅ Same email domain checking
-- ✅ Same MX record validation
+- ✅ Same MX record validation (via external API)
 - ✅ Same form state management
 - ✅ Same error handling
+
+**Note on Email Validation API:**
+Both templates use an external email validation service to check MX records. This service:
+- Helps prevent invalid email submissions
+- Fails gracefully if unavailable (doesn't block form submission)
+- Can be disabled by removing the `checkMXRecords` function call
+- Is optional for email validation to work (basic format validation still functions)
 
 ## Performance Considerations
 
@@ -117,9 +126,10 @@ Both versions use **identical JavaScript validation logic**:
 - **Total Load Time:** Usually faster due to CDN caching
 
 ### Pure CSS3 Version
-- **First Load:** Everything inline (no external requests)
-- **Subsequent Loads:** Full HTML downloaded each time
-- **Total Load Time:** Consistent, no dependency on CDN
+- **First Load:** Everything inline (~27KB, no CSS framework to download)
+- **Subsequent Loads:** Full HTML downloaded each time (~27KB)
+- **Total Load Time:** Consistent, no separate CSS framework dependency
+- **Total Data Transfer:** Less than Tailwind version (27KB vs 19KB + 50KB)
 
 ## Maintenance & Updates
 

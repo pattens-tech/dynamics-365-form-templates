@@ -39,9 +39,11 @@ This repository includes **two versions** of the contact form template:
 - No external CSS frameworks required
 - Uses CSS custom properties (variables) for theming
 - Modern CSS features: Grid, Flexbox, CSS Variables
-- Fully self-contained styling
+- Fully self-contained styling (all CSS inline)
 
 **📊 Need help choosing?** See the [Template Comparison Guide](./TEMPLATE_COMPARISON.md) for detailed differences and recommendations.
+
+**Note:** Both versions use Google Fonts and an optional email validation API. The validation API fails gracefully if unavailable.
 
 ## 🎨 Easy Theme Customization
 
